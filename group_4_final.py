@@ -64,6 +64,14 @@ def pdf_data():
     pass
 
 
+# data cleaining methods
+
+
+def merge_data():
+    # merge all data sources
+    pass
+
+
 if __name__ == '__main__':
     print('Web scraping....')
     try:
