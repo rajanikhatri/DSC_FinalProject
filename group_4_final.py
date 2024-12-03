@@ -1,6 +1,8 @@
 import requests as r
 import pandas as pd
 
+RENTCAST_API_KEY = "a0de751d717e405ca5eea0581ea338a4"
+
 # Data extraction methods
 def excel_data():
     # demographics excel spreadsheet
@@ -18,7 +20,7 @@ def web_scraping_data():
 
 
 def api_data():
-    # housing market treds (Zillow API)
+    # housing market treds: rentcast.io
     pass
 
 
