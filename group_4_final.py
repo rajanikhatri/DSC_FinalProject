@@ -28,21 +28,30 @@ def web_scraping_data():
 
     # create webdriver
     options = Options()
-    
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     driver.get(url)
 
+    # wait for page to load
     WebDriverWait(driver, 10).until(
         EC.presence_of_all_elements_located((By.TAG_NAME, 'li'))
     )
 
-    listings = driver.find_elements(By.TAG_NAME, 'li')
+    df = pd.DataFrame(columns=['Property Title', 'Property Address', 'Zip Code', 'Price', 'Bedrooms'])
+
+    # get listings and collect relevant data
+    listings = driver.find_elements(By.TAG_NAME, 'article')
     for listing in listings:
-        print(listing)
+        property_title = listing.find_element(By.CLASS_NAME, 'js-placardTitle').text
+        property_address = listing.find_element(By.CLASS_NAME, 'property-address').text
+        zip_code = property_address.split(' ')[-1]
+        price = listing.find_element(By.CLASS_NAME, 'property-pricing').text
+        bedrooms = listing.find_element(By.CLASS_NAME, 'property-beds').text
+        df.iloc[len(df)] = [property_title, property_address, zip_code, price, bedrooms]
 
     driver.quit()
+    return df
 
 
 def api_data():
