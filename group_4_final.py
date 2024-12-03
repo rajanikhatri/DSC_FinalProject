@@ -65,5 +65,10 @@ def pdf_data():
 
 
 if __name__ == '__main__':
-    print("Ohio housing data analysis final project")
-    web_scraping_data()
+    print('Web scraping....')
+    try:
+        web_scraping_data()
+        print('Completed web scraping')
+    except Exception as e:
+        print(f'Error: {e}')
+        print('Web scraping failed')
