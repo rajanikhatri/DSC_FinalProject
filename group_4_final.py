@@ -13,8 +13,100 @@ RENTCAST_API_KEY = "a0de751d717e405ca5eea0581ea338a4"
 
 # Data extraction methods
 def excel_data():
-    # demographics excel spreadsheet
-    pass
+    # Paths to the Excel files and corresponding years
+    file_paths = [
+        ("Data/Demographic Excel Dataset/ACSST5Y2020.S0501-2024-12-05T161503.xlsx", 2023),
+        ("Data/Demographic Excel Dataset/ACSST1Y2023.S0501-2024-12-05T050120.xlsx", 2022),
+        ("Data/Demographic Excel Dataset/ACSST1Y2022.S0501-2024-12-05T050308.xlsx", 2021),
+        ("Data/Demographic Excel Dataset/ACSST1Y2021.S0501-2024-12-05T161344.xlsx", 2020),
+        ("Data/Demographic Excel Dataset/ACSST1Y2019.S0501-2024-12-05T161533.xlsx", 2019),
+        ("Data/Demographic Excel Dataset/ACSST1Y2018.S0501-2024-12-05T161558.xlsx", 2018)
+    ]
+
+# Function to clean numbers (e.g., remove commas)
+#I keep this if I need to work on percentage too,
+#def clean_number(value):
+    #try:
+       # return float(str(value).replace(',', '').strip())
+    #except ValueError:
+       # return value  # Keep as-is if not a valid number
+
+    # Function to process an Excel file
+    def process_file(file_path, year):
+        # Load the Excel file
+        excel_data = pd.ExcelFile(file_path)
+        data = excel_data.parse('Data')
+
+        # Extract data for the given year
+        population_groups = data.iloc[0, 1:6].values
+        total_population = data.iloc[2, 1:6].values
+        employment_status = data.iloc[57, 1:6].values
+        civilian_employed = data.iloc[65, 1:6].values
+        earnings_for_yearly_workers = data.iloc[92, 1:6].values
+        median_earnings_for_male = data.iloc[101, 1:6].values
+        median_earnings_for_female = data.iloc[102, 1:6].values
+        median_household_income = data.iloc[116, 1:6].values
+        average_no_of_workers = data.iloc[117, 1:6].values
+        occupied_housing_units = data.iloc[133, 1:6].values
+        owner_occupied_housing_units = data.iloc[153, 1:6].values
+        avg_household_size_owner = data.iloc[137, 1:6].values
+        renter_occupied_housing_units = data.iloc[157, 1:6].values
+        avg_household_size_renter = data.iloc[138, 1:6].values
+
+        # Combine data for the year
+        rows = []
+        for population_index, population_group in enumerate(population_groups):
+            rows.append([
+                year,
+                population_group,
+                total_population[population_index],
+                employment_status[population_index],
+                civilian_employed[population_index],
+                earnings_for_yearly_workers[population_index],
+                median_earnings_for_male[population_index],
+                median_earnings_for_female[population_index],
+                median_household_income[population_index],
+                average_no_of_workers[population_index],
+                occupied_housing_units[population_index],
+                owner_occupied_housing_units[population_index],
+                avg_household_size_owner[population_index],
+                renter_occupied_housing_units[population_index],
+                avg_household_size_renter[population_index]
+            ])
+        return rows
+
+    # Process all files and combine the data
+    all_rows = []
+    for file_path, year in file_paths:
+        all_rows.extend(process_file(file_path, year))
+
+    # Create the DataFrame
+    structured_data = pd.DataFrame(
+        all_rows,
+        columns=[
+            "Year",
+            "Population group",
+            "Total Population",
+            "Employment Status for 16 years and over",
+            "Civilian employed population 16 years and over",
+            "Earnings (Full-Time Workers)",
+            "Median Earnings for Male",
+            "Median Earnings for Female",
+            "Median Household Income",
+            "Average workers per household",
+            "Occupied Housing Units",
+            "Owner occupied Housing Units",
+            "Average Housing Size by owner-occupied Units",
+            "Renter occupied Housing Units",
+            "Average Housing Size by renter-occupied Units"
+        ]
+    )
+
+    # Save to CSV
+    output_path = "Ohio_Housing_Status_Population_Income_and_Employment.csv"
+    structured_data.to_csv(output_path, index=False)
+
+    print(f"Excel data processing completed. CSV file created at: {output_path}")
 
 
 def csv_data():
@@ -26,7 +118,7 @@ def web_scraping_data():
     # rental listings (Apartments.com)
     url = 'https://www.apartments.com/oh/'
 
-    # create webdriver
+    # create webdriver d
     options = Options()
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
@@ -80,3 +172,10 @@ if __name__ == '__main__':
     except Exception as e:
         print(f'Error: {e}')
         print('Web scraping failed')
+      
+    print('Extracting Excel data....')
+    try:
+        excel_data()
+        print('Excel data extraction completed.')
+    except Exception as e:
+        print(f'Error in Excel data extraction: {e}')
