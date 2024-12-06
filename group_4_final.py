@@ -1,6 +1,7 @@
-import requests as r
+# general
 import pandas as pd
 
+# web scraping
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -9,7 +10,17 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+# api
+import requests as r
+
+# pdf
+from PyPDF2 import PdfReader
+from img2table.document import Image
+from img2table.ocr import TesseractOCR
+
+
 RENTCAST_API_KEY = "a0de751d717e405ca5eea0581ea338a4"
+
 
 # Data extraction methods
 def excel_data():
@@ -163,8 +174,30 @@ def api_data():
 
 
 def pdf_data():
-    # housing policy report (https://www.huduser.gov/portal/chma/oh.html)
-    pass
+    # housing policy report
+    file = 'Data/Official-Final-Report-compressed.pdf'
+    reader = PdfReader(file)
+    page = reader.pages[12]
+
+    # get table that is saved as an image
+    for image in page.images:
+        with open('Data/table.jpg', 'wb') as file:
+            file.write(image.data)
+    
+    # use ocr to read contents
+    img = Image(src='Data/table.jpg')
+    ocr = TesseractOCR(lang="eng")
+    img_table = img.extract_tables(ocr=ocr)[0]
+    rows = []
+    for id_row, row in enumerate(img_table.content.values()):
+        df_row = []
+        for id_col, cell in enumerate(row):
+            df_row.append(cell.value)
+        rows.append(df_row)
+
+    # convert to dataframe
+    df = pd.DataFrame(rows[1:], columns=rows[0], index=None)
+    return df
 
 
 # data cleaining methods
@@ -191,9 +224,16 @@ if __name__ == '__main__':
     # except Exception as e:
     #     print(f'Error in Excel data extraction: {e}')
 
-    print('Extracting API data....')
+    # print('Extracting API data....')
+    # try:
+    #     api_data()
+    #     print('API data extraction completed.')
+    # except Exception as e:
+    #     print(f'Error in API data extraction: {e}')
+
+    print('Extracting PDF data....')
     try:
-        api_data()
-        print('API data extraction completed.')
+        pdf_data()
+        print('PDF data extraction completed.')
     except Exception as e:
-        print(f'Error in API data extraction: {e}')
+        print(f'Error in PDF data extraction: {e}')
