@@ -13,6 +13,7 @@ RENTCAST_API_KEY = "a0de751d717e405ca5eea0581ea338a4"
 
 # Data extraction methods
 def excel_data():
+    # neighborhood demographic data
     # Paths to the Excel files and corresponding years
     file_paths = [
         ("Data/Demographic Excel Dataset/ACSST5Y2020.S0501-2024-12-05T161503.xlsx", 2023),
@@ -147,8 +148,18 @@ def web_scraping_data():
 
 
 def api_data():
+    ohio_zips = [43085]
     # housing market treds: rentcast.io
-    pass
+    header = {'accept': 'application/json',
+              'X-Api-Key': RENTCAST_API_KEY}
+    # limited to top 50 by API free trial
+    for zip_code in ohio_zips:
+        url = f'https://api.rentcast.io/v1/markets?zipCode={zip_code}&dataType=All&historyRange=0'
+        response = r.get(url, headers=header)
+        data = response.json()
+        print(data)
+        # process data
+        pass
 
 
 def pdf_data():
@@ -165,17 +176,24 @@ def merge_data():
 
 
 if __name__ == '__main__':
-    print('Web scraping....')
-    try:
-        web_scraping_data()
-        print('Completed web scraping')
-    except Exception as e:
-        print(f'Error: {e}')
-        print('Web scraping failed')
+    # print('Web scraping....')
+    # try:
+    #     web_scraping_data()
+    #     print('Completed web scraping')
+    # except Exception as e:
+    #     print(f'Error: {e}')
+    #     print('Web scraping failed')
       
-    print('Extracting Excel data....')
+    # print('Extracting Excel data....')
+    # try:
+    #     excel_data()
+    #     print('Excel data extraction completed.')
+    # except Exception as e:
+    #     print(f'Error in Excel data extraction: {e}')
+
+    print('Extracting API data....')
     try:
-        excel_data()
-        print('Excel data extraction completed.')
+        api_data()
+        print('API data extraction completed.')
     except Exception as e:
-        print(f'Error in Excel data extraction: {e}')
+        print(f'Error in API data extraction: {e}')
