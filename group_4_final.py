@@ -170,7 +170,6 @@ def api_data():
         data = response.json()
         print(data)
         # process data
-        pass
 
 
 def pdf_data():
