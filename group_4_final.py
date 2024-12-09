@@ -12,6 +12,8 @@ from selenium.webdriver.support import expected_conditions as EC
 
 # api
 import requests as r
+import json
+import os
 
 # pdf
 from PyPDF2 import PdfReader
@@ -159,17 +161,26 @@ def web_scraping_data():
 
 
 def api_data():
-    ohio_zips = [43085]
     # housing market treds: rentcast.io
+    # limited to top 25 by APIs by free trial (25 for testing + 25 for grading = 50 calls)
+    ohio_zips = ['45011','43123','44035','44256','43055','43026','44060','43130','43081','45601','43230','44077','45140','43068','43701','45840','43228','43302','43015','45040','45013','45044','43229','44107','45424']
     header = {'accept': 'application/json',
               'X-Api-Key': RENTCAST_API_KEY}
-    # limited to top 50 by API free trial
-    for zip_code in ohio_zips:
-        url = f'https://api.rentcast.io/v1/markets?zipCode={zip_code}&dataType=All&historyRange=0'
-        response = r.get(url, headers=header)
-        data = response.json()
-        print(data)
-        # process data
+    data = {}
+    if os.path.exists('Data/ohio_rentcast_data.json'):
+        with open('Data/ohio_rentcast_data.json', 'r') as json_file:
+            data = json.load(json_file)
+    else:
+        # query the api for each zip
+        for zip_code in ohio_zips:
+            url = f'https://api.rentcast.io/v1/markets?zipCode={zip_code}'
+            response = r.get(url, headers=header)
+            data[zip_code] = response.json()
+        # save data to file to be reused
+        with open('Data/ohio_rentcast_data.json', 'w') as json_file:
+            json.dump(data, json_file)
+        
+    
 
 
 def pdf_data():
