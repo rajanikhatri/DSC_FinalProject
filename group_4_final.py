@@ -2,6 +2,7 @@
 
 # general
 import pandas as pd
+import numpy as np
 
 # web scraping
 from selenium import webdriver
@@ -289,7 +290,7 @@ def web_scraping_data():
         EC.presence_of_all_elements_located((By.TAG_NAME, 'li'))
     )
 
-    df = pd.DataFrame(columns=['Property Title', 'Property Address', 'Zip Code', 'Price', 'Bedrooms'])
+    df = pd.DataFrame(columns=['Property Title', 'Property Address', 'Price', 'Bedrooms'])
 
     # get listings and collect relevant data
     listings = driver.find_elements(By.TAG_NAME, 'article')
@@ -299,10 +300,10 @@ def web_scraping_data():
         zip_code = property_address.split(' ')[-1]
         price = listing.find_element(By.CLASS_NAME, 'property-pricing').text
         bedrooms = listing.find_element(By.CLASS_NAME, 'property-beds').text
-        df.iloc[len(df)] = [property_title, property_address, zip_code, price, bedrooms]
+        df.loc[len(df)] = [property_title, property_address, price, bedrooms]
 
     driver.quit()
-    return df
+    clean_web_data(df)
 
 
 def api_data():
@@ -356,6 +357,23 @@ def pdf_data():
 
 
 # data cleaning methods
+
+def clean_web_data(data):
+    # reformat columns from matching listing to the format for merging
+    df = pd.DataFrame(columns=['zip_code','property_data_type','value', 'year', 'month'])
+    # extract zip code from each address
+    df['zip_code'] = data['Property Address'].apply(lambda x: x.split(' ')[-1])
+    # designate the type as a rental
+    df['property_data_type'] = data['Bedrooms'].apply(lambda x: f'{x} rental')
+    # use higher rent as value or unknown = NaN
+    df['value'] = data['Price'].apply(lambda x: x.split('$')[-1].replace(',', '') if '$' in x else np.nan)
+    df['year'], df['month'] = 2024, 12
+    print('Missing values before:\n' + df.isnull().sum())
+    # Drop rows with missing values
+    df = df.dropna()
+    print('Missing values after dropna\n' + df.isnull().sum())
+    return df
+
 
 def clean_api_data(data):
     # Clean API data by only saving relevant columns and adjusting granularity when converting to df
@@ -497,7 +515,7 @@ def merge_data():
 
 
 if __name__ == "__main__":
-    
+    web_scraping_data()
     # while True:
     #     try:
     #         # Display the menu
