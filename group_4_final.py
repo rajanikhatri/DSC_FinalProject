@@ -323,6 +323,9 @@ def api_data():
         with open('Data/ohio_rentcast_data.json', 'w') as json_file:
             json.dump(data, json_file)
 
+    # convert json to dataframe
+    df = pd.DataFrame(columns=[])
+    
 
 def pdf_data():
     # housing policy report
@@ -351,7 +354,7 @@ def pdf_data():
     return df
 
 
-# data cleaining methods
+# data cleaning methods
 
 
 def merge_data():
