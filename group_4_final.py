@@ -358,7 +358,7 @@ def pdf_data():
 # data cleaning methods
 
 def clean_api_data(data):
-    # convert to df and and clean api data
+    # Clean API data by only saving relevant columns and adjusting granularity when converting to df
     df = pd.DataFrame(columns=['zip_code','property_data_type','value', 'year', 'month'])
     for zip_code, zip_data in data.items():
         sale_data = zip_data.get('saleData')
@@ -381,7 +381,7 @@ def clean_api_data(data):
             for property_type in sale_data.get('dataByPropertyType'):
                 # Get data from current year by property type
                 # average
-                row = [zip_code, f"{property_type.get('propertyType')} average", property_type.get('averagePrice'), 2024, 12]
+                row = [zip_code, f"{property_type.get('propertyType')} average price", property_type.get('averagePrice'), 2024, 12]
                 df.loc[len(df)] = row
                 # median
                 row = [zip_code, f"{property_type.get('propertyType')} median price", property_type.get('medianPrice'), 2024, 12]
@@ -422,11 +422,73 @@ def clean_api_data(data):
                     # max
                     row = [zip_code, f"{property_type.get('propertyType')} max", property_type.get('maxPrice'), date[:4], date[5:]]
                     df.loc[len(df)] = row
-    
+        rent_data = zip_data.get('rentalData')
+        if rent_data.get('dataByBedrooms'):
+            for property_type in rent_data.get('dataByBedrooms'):
+                # Get data from current year by bedroom
+                # average
+                row = [zip_code, f"{property_type.get('bedrooms')} bedroom average rent", property_type.get('averagePrice'), 2024, 12]
+                df.loc[len(df)] = row
+                # median
+                row = [zip_code, f"{property_type.get('bedrooms')} bedroom median rent", property_type.get('medianPrice'), 2024, 12]
+                df.loc[len(df)] = row
+                # min
+                row = [zip_code, f"{property_type.get('bedrooms')} bedroom min rent", property_type.get('minPrice'), 2024, 12]
+                df.loc[len(df)] = row
+                # max
+                row = [zip_code, f"{property_type.get('bedrooms')} bedroom max rent", property_type.get('maxPrice'), 2024, 12]
+                df.loc[len(df)] = row
+        if rent_data.get('dataByPropertyType'):
+            for property_type in rent_data.get('dataByPropertyType'):
+                # Get data from current year by property type
+                # average
+                row = [zip_code, f"{property_type.get('propertyType')} average rent", property_type.get('averagePrice'), 2024, 12]
+                df.loc[len(df)] = row
+                # median
+                row = [zip_code, f"{property_type.get('propertyType')} median rent", property_type.get('medianPrice'), 2024, 12]
+                df.loc[len(df)] = row
+                # min
+                row = [zip_code, f"{property_type.get('propertyType')} min rent", property_type.get('minPrice'), 2024, 12]
+                df.loc[len(df)] = row
+                # max
+                row = [zip_code, f"{property_type.get('propertyType')} max rent", property_type.get('maxPrice'), 2024, 12]
+                df.loc[len(df)] = row
+        # Get historical data
+        for date, historical_data in rent_data.get('history').items():
+            if historical_data.get('dataByBedrooms'):
+                for property_type in historical_data.get('dataByBedrooms'):
+                    # average
+                    row = [zip_code, f"{property_type.get('bedrooms')} bedroom average rent", property_type.get('averagePrice'), date[:4], date[5:]]
+                    df.loc[len(df)] = row
+                    # median
+                    row = [zip_code, f"{property_type.get('bedrooms')} bedroom median rent", property_type.get('medianPrice'), date[:4], date[5:]]
+                    df.loc[len(df)] = row
+                    # min
+                    row = [zip_code, f"{property_type.get('bedrooms')} bedroom min rent", property_type.get('minPrice'), date[:4], date[5:]]
+                    df.loc[len(df)] = row
+                    # max
+                    row = [zip_code, f"{property_type.get('bedrooms')} bedroom max rent", property_type.get('maxPrice'), date[:4], date[5:]]
+                    df.loc[len(df)] = row
+            if historical_data.get('dataByPropertyType'):
+                for property_type in historical_data.get('dataByPropertyType'):
+                    # average
+                    row = [zip_code, f"{property_type.get('propertyType')} average rent", property_type.get('averagePrice'), date[:4], date[5:]]
+                    df.loc[len(df)] = row
+                    # median
+                    row = [zip_code, f"{property_type.get('propertyType')} median rent", property_type.get('medianPrice'), date[:4], date[5:]]
+                    df.loc[len(df)] = row
+                    # min
+                    row = [zip_code, f"{property_type.get('propertyType')} min rent", property_type.get('minPrice'), date[:4], date[5:]]
+                    df.loc[len(df)] = row
+                    # max
+                    row = [zip_code, f"{property_type.get('propertyType')} max rent", property_type.get('maxPrice'), date[:4], date[5:]]
+                    df.loc[len(df)] = row
+    # Count and print missing values
+    print('Missing values before:\n' + df.isnull().sum())
     # Drop rows with missing values
     df = df.dropna()
-
-
+    print('Missing values after dropna\n' + df.isnull().sum())
+    return df
 
 
 def merge_data():
