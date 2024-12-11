@@ -306,7 +306,6 @@ def web_scraping_data():
     return clean_web_data(df)
 
 
-
 def api_data():
     # housing market treds: rentcast.io
     # limited to top 25 by APIs by free trial (25 for testing + 25 for grading = 50 calls)
