@@ -497,7 +497,7 @@ def merge_data():
 
 
 if __name__ == "__main__":
-    api_data()
+    
     # while True:
     #     try:
     #         # Display the menu
