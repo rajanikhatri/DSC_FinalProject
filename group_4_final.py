@@ -303,7 +303,8 @@ def web_scraping_data():
         df.loc[len(df)] = [property_title, property_address, price, bedrooms]
 
     driver.quit()
-    clean_web_data(df)
+    return clean_web_data(df)
+
 
 
 def api_data():
@@ -326,7 +327,7 @@ def api_data():
         with open('Data/ohio_rentcast_data.json', 'w') as json_file:
             json.dump(data, json_file)
 
-    clean_api_data(data)
+    return clean_api_data(data)
     
 
 def pdf_data():
