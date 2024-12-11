@@ -1,3 +1,5 @@
+### Research Question: What is the most popular type of housing and average pricing by zip code in ohio?
+
 # general
 import pandas as pd
 
@@ -323,8 +325,7 @@ def api_data():
         with open('Data/ohio_rentcast_data.json', 'w') as json_file:
             json.dump(data, json_file)
 
-    # convert json to dataframe
-    df = pd.DataFrame(columns=[])
+    clean_api_data(data)
     
 
 def pdf_data():
@@ -356,6 +357,77 @@ def pdf_data():
 
 # data cleaning methods
 
+def clean_api_data(data):
+    # convert to df and and clean api data
+    df = pd.DataFrame(columns=['zip_code','property_data_type','value', 'year', 'month'])
+    for zip_code, zip_data in data.items():
+        sale_data = zip_data.get('saleData')
+        if sale_data.get('dataByBedrooms'):
+            for property_type in sale_data.get('dataByBedrooms'):
+                # Get data from current year by bedroom
+                # average
+                row = [zip_code, f"{property_type.get('bedrooms')} bedroom average price", property_type.get('averagePrice'), 2024, 12]
+                df.loc[len(df)] = row
+                # median
+                row = [zip_code, f"{property_type.get('bedrooms')} bedroom median price", property_type.get('medianPrice'), 2024, 12]
+                df.loc[len(df)] = row
+                # min
+                row = [zip_code, f"{property_type.get('bedrooms')} bedroom min price", property_type.get('minPrice'), 2024, 12]
+                df.loc[len(df)] = row
+                # max
+                row = [zip_code, f"{property_type.get('bedrooms')} bedroom max price", property_type.get('maxPrice'), 2024, 12]
+                df.loc[len(df)] = row
+        if sale_data.get('dataByPropertyType'):
+            for property_type in sale_data.get('dataByPropertyType'):
+                # Get data from current year by property type
+                # average
+                row = [zip_code, f"{property_type.get('propertyType')} average", property_type.get('averagePrice'), 2024, 12]
+                df.loc[len(df)] = row
+                # median
+                row = [zip_code, f"{property_type.get('propertyType')} median price", property_type.get('medianPrice'), 2024, 12]
+                df.loc[len(df)] = row
+                # min
+                row = [zip_code, f"{property_type.get('propertyType')} min price", property_type.get('minPrice'), 2024, 12]
+                df.loc[len(df)] = row
+                # max
+                row = [zip_code, f"{property_type.get('propertyType')} max price", property_type.get('maxPrice'), 2024, 12]
+                df.loc[len(df)] = row
+        # Get historical data
+        for date, historical_data in sale_data.get('history').items():
+            if historical_data.get('dataByBedrooms'):
+                for property_type in historical_data.get('dataByBedrooms'):
+                    # average
+                    row = [zip_code, f"{property_type.get('bedrooms')} bedroom average", property_type.get('averagePrice'), date[:4], date[5:]]
+                    df.loc[len(df)] = row
+                    # median
+                    row = [zip_code, f"{property_type.get('bedrooms')} bedroom median", property_type.get('medianPrice'), date[:4], date[5:]]
+                    df.loc[len(df)] = row
+                    # min
+                    row = [zip_code, f"{property_type.get('bedrooms')} bedroom min", property_type.get('minPrice'), date[:4], date[5:]]
+                    df.loc[len(df)] = row
+                    # max
+                    row = [zip_code, f"{property_type.get('bedrooms')} bedroom max", property_type.get('maxPrice'), date[:4], date[5:]]
+                    df.loc[len(df)] = row
+            if historical_data.get('dataByPropertyType'):
+                for property_type in historical_data.get('dataByPropertyType'):
+                    # average
+                    row = [zip_code, f"{property_type.get('propertyType')} average", property_type.get('averagePrice'), date[:4], date[5:]]
+                    df.loc[len(df)] = row
+                    # median
+                    row = [zip_code, f"{property_type.get('propertyType')} median", property_type.get('medianPrice'), date[:4], date[5:]]
+                    df.loc[len(df)] = row
+                    # min
+                    row = [zip_code, f"{property_type.get('propertyType')} min", property_type.get('minPrice'), date[:4], date[5:]]
+                    df.loc[len(df)] = row
+                    # max
+                    row = [zip_code, f"{property_type.get('propertyType')} max", property_type.get('maxPrice'), date[:4], date[5:]]
+                    df.loc[len(df)] = row
+    
+    # Drop rows with missing values
+    df = df.dropna()
+
+
+
 
 def merge_data():
     # merge all data sources
@@ -363,80 +435,81 @@ def merge_data():
 
 
 if __name__ == "__main__":
-    while True:
-        try:
-            # Display the menu
-            choice = int(input(
-                "Please select an option:\n"
-                "1: Web Scraping Data\n"
-                "2: Extract Excel Data\n"
-                "3: Extract API Data\n"
-                "4: Extract PDF Data\n"
-                "5: Extract CSV Housing Data\n"
-                "6: Extract CSV Rental Data\n"
-                "7: Exit\n"
-            ))
+    api_data()
+    # while True:
+    #     try:
+    #         # Display the menu
+    #         choice = int(input(
+    #             "Please select an option:\n"
+    #             "1: Web Scraping Data\n"
+    #             "2: Extract Excel Data\n"
+    #             "3: Extract API Data\n"
+    #             "4: Extract PDF Data\n"
+    #             "5: Extract CSV Housing Data\n"
+    #             "6: Extract CSV Rental Data\n"
+    #             "7: Exit\n"
+    #         ))
 
-            if choice == 1:
-                print("Web scraping....")
-                try:
-                    web_scraping_data()
-                    print("Completed web scraping.")
-                except Exception as e:
-                    print(f"Error: {e}")
-                    print("Web scraping failed.")
+    #         if choice == 1:
+    #             print("Web scraping....")
+    #             try:
+    #                 web_scraping_data()
+    #                 print("Completed web scraping.")
+    #             except Exception as e:
+    #                 print(f"Error: {e}")
+    #                 print("Web scraping failed.")
 
-            elif choice == 2:
-                print("Extracting Excel data....")
-                try:
-                    excel_data()
-                    print("Excel data extraction completed.")
-                except Exception as e:
-                    print(f"Error: {e}")
-                    print("Error in Excel data extraction.")
+    #         elif choice == 2:
+    #             print("Extracting Excel data....")
+    #             try:
+    #                 excel_data()
+    #                 print("Excel data extraction completed.")
+    #             except Exception as e:
+    #                 print(f"Error: {e}")
+    #                 print("Error in Excel data extraction.")
 
-            elif choice == 3:
-                print("Extracting API data....")
-                try:
-                    api_data()
-                    print("API data extraction completed.")
-                except Exception as e:
-                    print(f"Error: {e}")
-                    print("Error in API data extraction.")
+    #         elif choice == 3:
+    #             print("Extracting API data....")
+    #             try:
+    #                 api_data()
+    #                 print("API data extraction completed.")
+    #             except Exception as e:
+    #                 print(f"Error: {e}")
+    #                 print("Error in API data extraction.")
 
-            elif choice == 4:
-                print("Extracting PDF data....")
-                try:
-                    pdf_data()
-                    print("PDF data extraction completed.")
-                except Exception as e:
-                    print(f"Error: {e}")
-                    print("Error in PDF data extraction.")
+    #         elif choice == 4:
+    #             print("Extracting PDF data....")
+    #             try:
+    #                 pdf_data()
+    #                 print("PDF data extraction completed.")
+    #             except Exception as e:
+    #                 print(f"Error: {e}")
+    #                 print("Error in PDF data extraction.")
 
-            elif choice == 5:
-                print("Extracting CSV housing data....")
-                try:
-                    csv_housingdata()
-                    print("CSV housing data extraction completed.")
-                except Exception as e:
-                    print(f"Error: {e}")
-                    print("Error in CSV housing data extraction.")
+    #         elif choice == 5:
+    #             print("Extracting CSV housing data....")
+    #             try:
+    #                 csv_housingdata()
+    #                 print("CSV housing data extraction completed.")
+    #             except Exception as e:
+    #                 print(f"Error: {e}")
+    #                 print("Error in CSV housing data extraction.")
 
-            elif choice == 6:
-                print("Extracting CSV rental data....")
-                try:
-                    csv_rentaldata()
-                    print("CSV rental data extraction completed.")
-                except Exception as e:
-                    print(f"Error: {e}")
-                    print("Error in CSV rental data extraction.")
+    #         elif choice == 6:
+    #             print("Extracting CSV rental data....")
+    #             try:
+    #                 csv_rentaldata()
+    #                 print("CSV rental data extraction completed.")
+    #             except Exception as e:
+    #                 print(f"Error: {e}")
+    #                 print("Error in CSV rental data extraction.")
 
-            elif choice == 7:
-                print("Exiting the program. Goodbye!")
-                break  # Exit the loop
+    #         elif choice == 7:
+    #             print("Exiting the program. Goodbye!")
+    #             break  # Exit the loop
 
-            else:
-                print("Please enter a valid choice (1-7).")
+    #         else:
+    #             print("Please enter a valid choice (1-7).")
 
-        except ValueError:
-            print("Invalid input. Please enter an integer value.")
+    #     except ValueError:
+    #         print("Invalid input. Please enter an integer value.")
