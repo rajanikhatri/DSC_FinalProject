@@ -117,15 +117,158 @@ def excel_data():
     )
 
     # Save to CSV
-    output_path = "Ohio_Housing_Status_Population_Income_and_Employment.csv"
+    output_path = "OH_Demographic_Data.csv"
     structured_data.to_csv(output_path, index=False)
 
     print(f"Excel data processing completed. CSV file created at: {output_path}")
 
 
-def csv_data():
-    # housing and rental costs
-    pass
+def csv_housingdata():
+    # Define the file path and load the dataset
+    file_path = "Data/Housing and rental csv dataset/Metro_mlp_uc_sfrcondo_sm_month.csv"
+    data = pd.read_csv(file_path)
+
+    # Step 1: Filter data for Ohio
+    oh_data = data[data['StateName'] == 'OH']
+
+    # Create a list of WV regions to remove
+    wv_regions = [
+        "Huntington, WV",
+        "Point Pleasant, WV",
+        "Weirton, WV",
+        "Wheeling, WV"
+    ]
+
+    # Remove the WV regions
+    oh_data = oh_data[~oh_data['RegionName'].isin(wv_regions)]
+    print(f"Removed {len(wv_regions)} WV regions from the dataset")
+
+    #  Restructure the data from wide to long format
+    oh_data_long = oh_data.melt(
+        id_vars=["RegionID", "SizeRank", "RegionName", "RegionType", "StateName"],
+        var_name="Date",
+        value_name="HousingPrice"
+    )
+
+    #  Process date information
+    oh_data_long["Date"] = pd.to_datetime(oh_data_long["Date"], errors="coerce")
+    oh_data_long["Year"] = oh_data_long["Date"].dt.year
+
+    #  Handle missing values
+    oh_data_long = oh_data_long.sort_values(['RegionName', 'Date'])
+
+    # Forward fill for up to 3 consecutive missing values
+    oh_data_long["HousingPrice_FFill"] = oh_data_long.groupby("RegionName")["HousingPrice"].transform(
+        lambda x: x.fillna(method='ffill', limit=3)
+    )
+
+    #  Region-specific median fill
+    oh_data_long["HousingPrice_Filled"] = oh_data_long.groupby(["RegionName", "Year"])["HousingPrice_FFill"].transform(
+        lambda x: x.fillna(x.median())
+    )
+
+    #  Overall year median fill
+    oh_data_long["HousingPrice_Filled"] = oh_data_long.groupby("Year")["HousingPrice_Filled"].transform(
+        lambda x: x.fillna(x.median())
+    )
+
+    #  Calculate annual statistics
+    annual_avg_prices = oh_data_long.groupby(
+        ["RegionID", "SizeRank", "RegionName", "RegionType", "StateName", "Year"],
+        as_index=False
+    ).agg({
+        "HousingPrice_Filled": [
+            ("AverageHousingPrice", "mean"),
+            ("MedianHousingPrice", "median"),
+            ("MinPrice", "min"),
+            ("MaxPrice", "max")
+        ]
+    }).round(2)
+
+    # Clean up the column names
+    annual_avg_prices.columns = [col[1] if col[1] != '' else col[0] for col in annual_avg_prices.columns]
+
+    # Sort the data
+    annual_avg_prices = annual_avg_prices.sort_values(by=["Year", "RegionName"])
+
+    # Reorganize columns to put Year first
+    cols = ["Year"] + [col for col in annual_avg_prices.columns if col != "Year"]
+    annual_avg_prices = annual_avg_prices[cols]
+
+    # Save the results to a CSV file
+    output_path = "OH_Housing_Data.csv"
+    annual_avg_prices.to_csv(output_path, index=False)
+
+    # Print confirmation messages
+    print(f"Final dataset created and saved at: {output_path}")
+
+
+def csv_rentaldata():
+    # Load the rental CSV file
+    file_path = "Data/Housing and rental csv dataset/FMR_All_1983_2025.csv"
+    data = pd.read_csv(file_path, encoding='latin-1')
+
+    # Create filter for Ohio data
+    Ohio_Filter = (
+            data['areaname25'].str.contains(", OH") |
+            data['areaname25'].str.contains(", OH MSA") |
+            data['areaname25'].str.contains(", OH-") |
+            data['areaname25'].str.contains(", OH HUD")
+    )
+
+    oh_data = data[Ohio_Filter]
+
+    # Check for duplicates in original Ohio data
+    duplicates = oh_data[oh_data.duplicated()]
+    print("\nChecking for duplicates in original data:")
+    print(f"Number of duplicate rows: {len(duplicates)}")
+    if len(duplicates) > 0:
+        print("Duplicate rows found in:")
+        print(duplicates['areaname25'].values)
+
+    # Create empty list to store the data
+    all_data = []
+
+    # Process data for each year (2018-2024)
+    for year in range(18, 25):
+        year_str = f"{year:02d}"
+        year_cols = [f'fmr{year_str}_{i}' for i in range(5)]  # 0-4 bedrooms
+
+        # Check for missing values in this year's columns
+        missing_values = oh_data[year_cols].isnull().sum()
+        if missing_values.sum() > 0:
+            print(f"\nMissing values for year 20{year_str}:")
+            for col, count in missing_values.items():
+                if count > 0:
+                    print(f"{col}: {count} missing values")
+
+        # Collect data for each region
+        for _, row in oh_data.iterrows():
+            all_data.append({
+                'Year': 2000 + int(year_str),  # Convert to full year (e.g., 2018, 2019)
+                'RegionName': row['areaname25'],
+                'StudioMonthlyRent': row[f'fmr{year_str}_0'],
+                'StudioYearlyRent': row[f'fmr{year_str}_0'] * 12 if pd.notnull(row[f'fmr{year_str}_0']) else None,
+                '1BedMonthlyRent': row[f'fmr{year_str}_1'],
+                '1BedYearlyRent': row[f'fmr{year_str}_1'] * 12 if pd.notnull(row[f'fmr{year_str}_1']) else None,
+                '2BedMonthlyRent': row[f'fmr{year_str}_2'],
+                '2BedYearlyRent': row[f'fmr{year_str}_2'] * 12 if pd.notnull(row[f'fmr{year_str}_2']) else None,
+                '3BedMonthlyRent': row[f'fmr{year_str}_3'],
+                '3BedYearlyRent': row[f'fmr{year_str}_3'] * 12 if pd.notnull(row[f'fmr{year_str}_3']) else None,
+                '4BedMonthlyRent': row[f'fmr{year_str}_4'],
+                '4BedYearlyRent': row[f'fmr{year_str}_4'] * 12 if pd.notnull(row[f'fmr{year_str}_4']) else None,
+            })
+
+    # Convert to DataFrame and sort
+    result_df = pd.DataFrame(all_data)
+    result_df = result_df.sort_values(['Year', 'RegionName'])
+
+    # Save to CSV
+    output_path = "OH_Rental_Data.csv"
+    result_df.to_csv(output_path, index=False)
+
+    print(f"\nData saved to: {output_path}")
+    print(f"Total records: {len(result_df)}")
 
 
 def web_scraping_data():
@@ -179,8 +322,6 @@ def api_data():
         # save data to file to be reused
         with open('Data/ohio_rentcast_data.json', 'w') as json_file:
             json.dump(data, json_file)
-        
-    
 
 
 def pdf_data():
@@ -193,7 +334,7 @@ def pdf_data():
     for image in page.images:
         with open('Data/table.jpg', 'wb') as file:
             file.write(image.data)
-    
+
     # use ocr to read contents
     img = Image(src='Data/table.jpg')
     ocr = TesseractOCR(lang="eng")
@@ -218,32 +359,81 @@ def merge_data():
     pass
 
 
-if __name__ == '__main__':
-    # print('Web scraping....')
-    # try:
-    #     web_scraping_data()
-    #     print('Completed web scraping')
-    # except Exception as e:
-    #     print(f'Error: {e}')
-    #     print('Web scraping failed')
-      
-    # print('Extracting Excel data....')
-    # try:
-    #     excel_data()
-    #     print('Excel data extraction completed.')
-    # except Exception as e:
-    #     print(f'Error in Excel data extraction: {e}')
+if __name__ == "__main__":
+    while True:
+        try:
+            # Display the menu
+            choice = int(input(
+                "Please select an option:\n"
+                "1: Web Scraping Data\n"
+                "2: Extract Excel Data\n"
+                "3: Extract API Data\n"
+                "4: Extract PDF Data\n"
+                "5: Extract CSV Housing Data\n"
+                "6: Extract CSV Rental Data\n"
+                "7: Exit\n"
+            ))
 
-    # print('Extracting API data....')
-    # try:
-    #     api_data()
-    #     print('API data extraction completed.')
-    # except Exception as e:
-    #     print(f'Error in API data extraction: {e}')
+            if choice == 1:
+                print("Web scraping....")
+                try:
+                    web_scraping_data()
+                    print("Completed web scraping.")
+                except Exception as e:
+                    print(f"Error: {e}")
+                    print("Web scraping failed.")
 
-    print('Extracting PDF data....')
-    try:
-        pdf_data()
-        print('PDF data extraction completed.')
-    except Exception as e:
-        print(f'Error in PDF data extraction: {e}')
+            elif choice == 2:
+                print("Extracting Excel data....")
+                try:
+                    excel_data()
+                    print("Excel data extraction completed.")
+                except Exception as e:
+                    print(f"Error: {e}")
+                    print("Error in Excel data extraction.")
+
+            elif choice == 3:
+                print("Extracting API data....")
+                try:
+                    api_data()
+                    print("API data extraction completed.")
+                except Exception as e:
+                    print(f"Error: {e}")
+                    print("Error in API data extraction.")
+
+            elif choice == 4:
+                print("Extracting PDF data....")
+                try:
+                    pdf_data()
+                    print("PDF data extraction completed.")
+                except Exception as e:
+                    print(f"Error: {e}")
+                    print("Error in PDF data extraction.")
+
+            elif choice == 5:
+                print("Extracting CSV housing data....")
+                try:
+                    csv_housingdata()
+                    print("CSV housing data extraction completed.")
+                except Exception as e:
+                    print(f"Error: {e}")
+                    print("Error in CSV housing data extraction.")
+
+            elif choice == 6:
+                print("Extracting CSV rental data....")
+                try:
+                    csv_rentaldata()
+                    print("CSV rental data extraction completed.")
+                except Exception as e:
+                    print(f"Error: {e}")
+                    print("Error in CSV rental data extraction.")
+
+            elif choice == 7:
+                print("Exiting the program. Goodbye!")
+                break  # Exit the loop
+
+            else:
+                print("Please enter a valid choice (1-7).")
+
+        except ValueError:
+            print("Invalid input. Please enter an integer value.")
