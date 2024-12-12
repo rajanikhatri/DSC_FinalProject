@@ -365,13 +365,14 @@ def pdf_data():
 
 def clean_web_data(data):
     # reformat columns from matching listing to the format for merging
-    df = pd.DataFrame(columns=['zip_code','property_data_type','value ($)', 'year', 'month'])
+    df = pd.DataFrame(columns=['zip_code','property_data_type','value', 'year', 'month'])
     # extract zip code from each address
     df['zip_code'] = data['Property Address'].apply(lambda x: x.split(' ')[-1])
     # designate the type as a rental
     df['property_data_type'] = data['Bedrooms'].apply(lambda x: f'{x} rent')
-    # use higher rent as value or unknown = NaN
-    df['value ($)'] = data['Price'].apply(lambda x: x.split('$')[-1].replace(',', '') if '$' in x else np.nan)
+    # calculate average rent value or unknown = NaN
+    df['value'] = data['Price'].apply(lambda x: (int(x.split('$')[-1].replace(',', '')) + int(x.split(' ')[0].strip('$').replace(',', ''))) / 2 if '-' in x else int(x.split('$')[-1].replace(',', '')) if '$' in x else np.nan)
+    df['value'].fillna(df['value'].median(), inplace=True)
     df['year'], df['month'] = 2024, 12
     print('Missing values before:')
     print(df.isnull().sum())
@@ -384,7 +385,7 @@ def clean_web_data(data):
 
 def clean_api_data(data):
     # Clean API data by only saving relevant columns and adjusting granularity when converting to df
-    df = pd.DataFrame(columns=['zip_code','property_data_type','value ($)', 'year', 'month'])
+    df = pd.DataFrame(columns=['zip_code','property_data_type','value', 'year', 'month'])
     for zip_code, zip_data in data.items():
         sale_data = zip_data.get('saleData')
         if sale_data.get('dataByBedrooms'):
@@ -520,7 +521,7 @@ def clean_api_data(data):
 
 def clean_pdf_data(data):
     # flatten and drop irrelevant columns & rows
-    df = pd.DataFrame(columns=['zip_code','property_data_type','value ($)', 'year', 'month'])
+    df = pd.DataFrame(columns=['zip_code','property_data_type','value', 'year', 'month'])
     df['value'] = data['Median Listing Price']
     # drop last row of percentage data
     df = df.drop(df.tail(1).index)
@@ -553,6 +554,9 @@ def add_calculations(df):
 
 
 if __name__ == "__main__":
+    print(web_scraping_data())
+
+    exit()
 
     print('Extracting data...')
     
