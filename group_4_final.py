@@ -213,10 +213,7 @@ def csv_rentaldata():
 
     # Create filter for Ohio data
     Ohio_Filter = (
-            data['areaname25'].str.contains(", OH") |
-            data['areaname25'].str.contains(", OH MSA") |
-            data['areaname25'].str.contains(", OH-") |
-            data['areaname25'].str.contains(", OH HUD")
+            data['areaname25'].str.contains(", OH")
     )
 
     oh_data = data[Ohio_Filter]
