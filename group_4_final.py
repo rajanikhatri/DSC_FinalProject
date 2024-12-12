@@ -353,7 +353,7 @@ def pdf_data():
 
     # convert to dataframe
     df = pd.DataFrame(rows[1:], columns=rows[0], index=None)
-    return df
+    return clean_pdf_data(df)
 
 
 # data cleaning methods
@@ -509,13 +509,28 @@ def clean_api_data(data):
     return df
 
 
-def merge_data():
+def clean_pdf_data(data):
+    # flatten and drop irrelevant columns & rows
+    df = pd.DataFrame(columns=['zip_code','property_data_type','value', 'year', 'month'])
+    # drop last row of percentage data
+    data.drop(df.tail(1).index,inplace=True)
+    # to designate all of ohio
+    df['value'] = data['Median Listing Price']
+
+    df['zip_code'] = '4xxxx'
+    df['property_data_type'] = data.columns.tolist()[1]
+    df['value'] = data['Median Listing Price']
+    df['year'] = data['Year']
+    df['month'] = '12' # assuming data was collected at the end of the year 
+    print(df)
+
+def merge_data(dfs):
     # merge all data sources
-    pass
+    df_final = pd.DataFrame(columns=['zip_code','property_data_type','value', 'year', 'month'])
 
 
 if __name__ == "__main__":
-    web_scraping_data()
+    pdf_data()
     # while True:
     #     try:
     #         # Display the menu
