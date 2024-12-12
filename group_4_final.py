@@ -364,14 +364,16 @@ def clean_web_data(data):
     # extract zip code from each address
     df['zip_code'] = data['Property Address'].apply(lambda x: x.split(' ')[-1])
     # designate the type as a rental
-    df['property_data_type'] = data['Bedrooms'].apply(lambda x: f'{x} rental')
+    df['property_data_type'] = data['Bedrooms'].apply(lambda x: f'{x} rent')
     # use higher rent as value or unknown = NaN
     df['value'] = data['Price'].apply(lambda x: x.split('$')[-1].replace(',', '') if '$' in x else np.nan)
     df['year'], df['month'] = 2024, 12
-    print('Missing values before:\n' + df.isnull().sum())
+    print('Missing values before:')
+    print(df.isnull().sum())
     # Drop rows with missing values
     df = df.dropna()
-    print('Missing values after dropna\n' + df.isnull().sum())
+    print('Missing values after dropna:')
+    print(df.isnull().sum())
     return df
 
 
@@ -415,30 +417,30 @@ def clean_api_data(data):
             if historical_data.get('dataByBedrooms'):
                 for property_type in historical_data.get('dataByBedrooms'):
                     # average
-                    row = [zip_code, f"{property_type.get('bedrooms')} bedroom average", property_type.get('averagePrice'), date[:4], date[5:]]
+                    row = [zip_code, f"{property_type.get('bedrooms')} bedroom average price", property_type.get('averagePrice'), date[:4], date[5:]]
                     df.loc[len(df)] = row
                     # median
-                    row = [zip_code, f"{property_type.get('bedrooms')} bedroom median", property_type.get('medianPrice'), date[:4], date[5:]]
+                    row = [zip_code, f"{property_type.get('bedrooms')} bedroom median price", property_type.get('medianPrice'), date[:4], date[5:]]
                     df.loc[len(df)] = row
                     # min
-                    row = [zip_code, f"{property_type.get('bedrooms')} bedroom min", property_type.get('minPrice'), date[:4], date[5:]]
+                    row = [zip_code, f"{property_type.get('bedrooms')} bedroom min price", property_type.get('minPrice'), date[:4], date[5:]]
                     df.loc[len(df)] = row
                     # max
-                    row = [zip_code, f"{property_type.get('bedrooms')} bedroom max", property_type.get('maxPrice'), date[:4], date[5:]]
+                    row = [zip_code, f"{property_type.get('bedrooms')} bedroom max price", property_type.get('maxPrice'), date[:4], date[5:]]
                     df.loc[len(df)] = row
             if historical_data.get('dataByPropertyType'):
                 for property_type in historical_data.get('dataByPropertyType'):
                     # average
-                    row = [zip_code, f"{property_type.get('propertyType')} average", property_type.get('averagePrice'), date[:4], date[5:]]
+                    row = [zip_code, f"{property_type.get('propertyType')} average price", property_type.get('averagePrice'), date[:4], date[5:]]
                     df.loc[len(df)] = row
                     # median
-                    row = [zip_code, f"{property_type.get('propertyType')} median", property_type.get('medianPrice'), date[:4], date[5:]]
+                    row = [zip_code, f"{property_type.get('propertyType')} median price", property_type.get('medianPrice'), date[:4], date[5:]]
                     df.loc[len(df)] = row
                     # min
-                    row = [zip_code, f"{property_type.get('propertyType')} min", property_type.get('minPrice'), date[:4], date[5:]]
+                    row = [zip_code, f"{property_type.get('propertyType')} min price", property_type.get('minPrice'), date[:4], date[5:]]
                     df.loc[len(df)] = row
                     # max
-                    row = [zip_code, f"{property_type.get('propertyType')} max", property_type.get('maxPrice'), date[:4], date[5:]]
+                    row = [zip_code, f"{property_type.get('propertyType')} max price", property_type.get('maxPrice'), date[:4], date[5:]]
                     df.loc[len(df)] = row
         rent_data = zip_data.get('rentalData')
         if rent_data.get('dataByBedrooms'):
@@ -502,35 +504,42 @@ def clean_api_data(data):
                     row = [zip_code, f"{property_type.get('propertyType')} max rent", property_type.get('maxPrice'), date[:4], date[5:]]
                     df.loc[len(df)] = row
     # Count and print missing values
-    print('Missing values before:\n' + df.isnull().sum())
+    print('Missing values before:')
+    print(df.isnull().sum())
     # Drop rows with missing values
     df = df.dropna()
-    print('Missing values after dropna\n' + df.isnull().sum())
+    print('Missing values after dropna:')
+    print(df.isnull().sum())
     return df
 
 
 def clean_pdf_data(data):
     # flatten and drop irrelevant columns & rows
     df = pd.DataFrame(columns=['zip_code','property_data_type','value', 'year', 'month'])
-    # drop last row of percentage data
-    data.drop(df.tail(1).index,inplace=True)
-    # to designate all of ohio
     df['value'] = data['Median Listing Price']
-
+    # drop last row of percentage data
+    df = df.drop(df.tail(1).index)
+    # to designate all of ohio
     df['zip_code'] = '4xxxx'
     df['property_data_type'] = data.columns.tolist()[1]
-    df['value'] = data['Median Listing Price']
+    df['value'] = data['Median Listing Price'].apply(lambda x: x.strip('$').replace(',', '') if isinstance(x, str) else np.nan)
     df['year'] = data['Year']
-    df['month'] = '12' # assuming data was collected at the end of the year 
+    df['month'] = '12' # assuming data was collected at the end of the year
+    print('Missing values before:')
+    print(df.isnull().sum())
+    # Drop rows with missing values
+    df = df.dropna()
+    print('Missing values after dropna:')
+    print(df.isnull().sum())
     print(df)
+
 
 def merge_data(dfs):
     # merge all data sources
-    df_final = pd.DataFrame(columns=['zip_code','property_data_type','value', 'year', 'month'])
+    df_final = pd.DataFrame(columns=['zip_code','property_data_type','value ($)', 'year', 'month'])
 
 
 if __name__ == "__main__":
-    pdf_data()
     # while True:
     #     try:
     #         # Display the menu
