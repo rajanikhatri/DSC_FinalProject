@@ -360,13 +360,13 @@ def pdf_data():
 
 def clean_web_data(data):
     # reformat columns from matching listing to the format for merging
-    df = pd.DataFrame(columns=['zip_code','property_data_type','value', 'year', 'month'])
+    df = pd.DataFrame(columns=['zip_code','property_data_type','value ($)', 'year', 'month'])
     # extract zip code from each address
     df['zip_code'] = data['Property Address'].apply(lambda x: x.split(' ')[-1])
     # designate the type as a rental
     df['property_data_type'] = data['Bedrooms'].apply(lambda x: f'{x} rent')
     # use higher rent as value or unknown = NaN
-    df['value'] = data['Price'].apply(lambda x: x.split('$')[-1].replace(',', '') if '$' in x else np.nan)
+    df['value ($)'] = data['Price'].apply(lambda x: x.split('$')[-1].replace(',', '') if '$' in x else np.nan)
     df['year'], df['month'] = 2024, 12
     print('Missing values before:')
     print(df.isnull().sum())
@@ -379,7 +379,7 @@ def clean_web_data(data):
 
 def clean_api_data(data):
     # Clean API data by only saving relevant columns and adjusting granularity when converting to df
-    df = pd.DataFrame(columns=['zip_code','property_data_type','value', 'year', 'month'])
+    df = pd.DataFrame(columns=['zip_code','property_data_type','value ($)', 'year', 'month'])
     for zip_code, zip_data in data.items():
         sale_data = zip_data.get('saleData')
         if sale_data.get('dataByBedrooms'):
@@ -515,7 +515,7 @@ def clean_api_data(data):
 
 def clean_pdf_data(data):
     # flatten and drop irrelevant columns & rows
-    df = pd.DataFrame(columns=['zip_code','property_data_type','value', 'year', 'month'])
+    df = pd.DataFrame(columns=['zip_code','property_data_type','value ($)', 'year', 'month'])
     df['value'] = data['Median Listing Price']
     # drop last row of percentage data
     df = df.drop(df.tail(1).index)
@@ -536,84 +536,68 @@ def clean_pdf_data(data):
 
 def merge_data(dfs):
     # merge all data sources
-    df_final = pd.DataFrame(columns=['zip_code','property_data_type','value ($)', 'year', 'month'])
+    merged = pd.concat(dfs)
+    merged['property_data_type'] = merged['property_data_type'].apply(lambda x: str(x).lower())
+    return merged
+
+
+def add_calculations(df):
+    print('break')
+    #df['annual_rent'] = df['value ($)'].apply(lambda row: row['value ($)'] * 12 if 'rent' in row['property_data_type'] else 'n/a')
+    print(df)
 
 
 if __name__ == "__main__":
-    # while True:
-    #     try:
-    #         # Display the menu
-    #         choice = int(input(
-    #             "Please select an option:\n"
-    #             "1: Web Scraping Data\n"
-    #             "2: Extract Excel Data\n"
-    #             "3: Extract API Data\n"
-    #             "4: Extract PDF Data\n"
-    #             "5: Extract CSV Housing Data\n"
-    #             "6: Extract CSV Rental Data\n"
-    #             "7: Exit\n"
-    #         ))
 
-    #         if choice == 1:
-    #             print("Web scraping....")
-    #             try:
-    #                 web_scraping_data()
-    #                 print("Completed web scraping.")
-    #             except Exception as e:
-    #                 print(f"Error: {e}")
-    #                 print("Web scraping failed.")
+    print('Extracting data...')
+    
+    print("Web scraping....")
+    try:
+        df_web = web_scraping_data()
+        print("Completed web scraping.")
+    except Exception as e:
+        print(f"Error: {e}")
+        print("Web scraping failed.")
 
-    #         elif choice == 2:
-    #             print("Extracting Excel data....")
-    #             try:
-    #                 excel_data()
-    #                 print("Excel data extraction completed.")
-    #             except Exception as e:
-    #                 print(f"Error: {e}")
-    #                 print("Error in Excel data extraction.")
+    print("Extracting Excel data....")
+    try:
+        excel_data()
+        print("Excel data extraction completed.")
+    except Exception as e:
+        print(f"Error: {e}")
+        print("Error in Excel data extraction.")
 
-    #         elif choice == 3:
-    #             print("Extracting API data....")
-    #             try:
-    #                 api_data()
-    #                 print("API data extraction completed.")
-    #             except Exception as e:
-    #                 print(f"Error: {e}")
-    #                 print("Error in API data extraction.")
+    print("Extracting API data....")
+    try:
+        df_api = api_data()
+        print("API data extraction completed.")
+    except Exception as e:
+        print(f"Error: {e}")
+        print("Error in API data extraction.")
 
-    #         elif choice == 4:
-    #             print("Extracting PDF data....")
-    #             try:
-    #                 pdf_data()
-    #                 print("PDF data extraction completed.")
-    #             except Exception as e:
-    #                 print(f"Error: {e}")
-    #                 print("Error in PDF data extraction.")
+    print("Extracting PDF data....")
+    try:
+        df_pdf = pdf_data()
+        print("PDF data extraction completed.")
+    except Exception as e:
+        print(f"Error: {e}")
+        print("Error in PDF data extraction.")
 
-    #         elif choice == 5:
-    #             print("Extracting CSV housing data....")
-    #             try:
-    #                 csv_housingdata()
-    #                 print("CSV housing data extraction completed.")
-    #             except Exception as e:
-    #                 print(f"Error: {e}")
-    #                 print("Error in CSV housing data extraction.")
+    print("Extracting CSV housing data....")
+    try:
+        csv_housingdata()
+        print("CSV housing data extraction completed.")
+    except Exception as e:
+        print(f"Error: {e}")
+        print("Error in CSV housing data extraction.")
 
-    #         elif choice == 6:
-    #             print("Extracting CSV rental data....")
-    #             try:
-    #                 csv_rentaldata()
-    #                 print("CSV rental data extraction completed.")
-    #             except Exception as e:
-    #                 print(f"Error: {e}")
-    #                 print("Error in CSV rental data extraction.")
+    print("Extracting CSV rental data....")
+    try:
+        csv_rentaldata()
+        print("CSV rental data extraction completed.")
+    except Exception as e:
+        print(f"Error: {e}")
+        print("Error in CSV rental data extraction.")
 
-    #         elif choice == 7:
-    #             print("Exiting the program. Goodbye!")
-    #             break  # Exit the loop
-
-    #         else:
-    #             print("Please enter a valid choice (1-7).")
-
-    #     except ValueError:
-    #         print("Invalid input. Please enter an integer value.")
+    df_merged = merge_data([df_web, df_api, df_pdf])
+    add_calculations(df_merged)
