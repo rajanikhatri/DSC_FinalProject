@@ -75,6 +75,7 @@ def excel_data():
         for population_index, population_group in enumerate(population_groups):
             rows.append([
                 year,
+                "Demographic",
                 population_group,
                 total_population[population_index],
                 employment_status[population_index],
@@ -102,6 +103,7 @@ def excel_data():
         all_rows,
         columns=[
             "Year",
+            "Property_data_type",
             "Population group",
             "Total Population",
             "Employment Status for 16 years and over",
@@ -191,12 +193,18 @@ def csv_housingdata():
     # Clean up the column names
     annual_avg_prices.columns = [col[1] if col[1] != '' else col[0] for col in annual_avg_prices.columns]
 
-    # Sort the data
-    annual_avg_prices = annual_avg_prices.sort_values(by=["Year", "RegionName"])
+    # Add Property_data_category column
+    annual_avg_prices["Property_data_type"] = "Housing"
 
-    # Reorganize columns to put Year first
-    cols = ["Year"] + [col for col in annual_avg_prices.columns if col != "Year"]
+    cols = [
+        "Year", "Property_data_type", "RegionID", "SizeRank", "RegionName",
+        "RegionType", "StateName", "AverageHousingPrice", "MedianHousingPrice",
+        "MinPrice", "MaxPrice"
+    ]
     annual_avg_prices = annual_avg_prices[cols]
+
+    # Sort the data by Year and then RegionName
+    annual_avg_prices = annual_avg_prices.sort_values(by=["Year", "RegionName"], ascending=[True, True])
 
     # Save the results to a CSV file
     output_path = "OH_Housing_Data.csv"
@@ -204,7 +212,6 @@ def csv_housingdata():
 
     # Print confirmation messages
     print(f"Final dataset created and saved at: {output_path}")
-
 
 def csv_rentaldata():
     # Load the rental CSV file
@@ -246,6 +253,7 @@ def csv_rentaldata():
         for _, row in oh_data.iterrows():
             all_data.append({
                 'Year': 2000 + int(year_str),  # Convert to full year (e.g., 2018, 2019)
+                'property_data_type': 'Rental',
                 'RegionName': row['areaname25'],
                 'StudioMonthlyRent': row[f'fmr{year_str}_0'],
                 'StudioYearlyRent': row[f'fmr{year_str}_0'] * 12 if pd.notnull(row[f'fmr{year_str}_0']) else None,
