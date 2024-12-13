@@ -213,6 +213,7 @@ def csv_housingdata():
     # Print confirmation messages
     print(f"Final dataset created and saved at: {output_path}")
 
+
 def csv_rentaldata():
     # Load the rental CSV file
     file_path = "Data/Housing and rental csv dataset/FMR_All_1983_2025.csv"
@@ -256,15 +257,10 @@ def csv_rentaldata():
                 'property_data_type': 'Rental',
                 'RegionName': row['areaname25'],
                 'StudioMonthlyRent': row[f'fmr{year_str}_0'],
-                'StudioYearlyRent': row[f'fmr{year_str}_0'] * 12 if pd.notnull(row[f'fmr{year_str}_0']) else None,
                 '1BedMonthlyRent': row[f'fmr{year_str}_1'],
-                '1BedYearlyRent': row[f'fmr{year_str}_1'] * 12 if pd.notnull(row[f'fmr{year_str}_1']) else None,
                 '2BedMonthlyRent': row[f'fmr{year_str}_2'],
-                '2BedYearlyRent': row[f'fmr{year_str}_2'] * 12 if pd.notnull(row[f'fmr{year_str}_2']) else None,
                 '3BedMonthlyRent': row[f'fmr{year_str}_3'],
-                '3BedYearlyRent': row[f'fmr{year_str}_3'] * 12 if pd.notnull(row[f'fmr{year_str}_3']) else None,
                 '4BedMonthlyRent': row[f'fmr{year_str}_4'],
-                '4BedYearlyRent': row[f'fmr{year_str}_4'] * 12 if pd.notnull(row[f'fmr{year_str}_4']) else None,
             })
 
     # Convert to DataFrame and sort
@@ -362,7 +358,6 @@ def pdf_data():
 
 
 # data cleaning methods
-
 def clean_web_data(data):
     # reformat columns from matching listing to the format for merging
     df = pd.DataFrame(columns=['zip_code','property_data_type','value', 'year', 'month'])
@@ -374,12 +369,6 @@ def clean_web_data(data):
     df['value'] = data['Price'].apply(lambda x: (int(x.split('$')[-1].replace(',', '')) + int(x.split(' ')[0].strip('$').replace(',', ''))) / 2 if '-' in x else int(x.split('$')[-1].replace(',', '')) if '$' in x else np.nan)
     df['value'].fillna(df['value'].median(), inplace=True)
     df['year'], df['month'] = 2024, 12
-    print('Missing values before:')
-    print(df.isnull().sum())
-    # Drop rows with missing values
-    df = df.dropna()
-    print('Missing values after dropna:')
-    print(df.isnull().sum())
     return df
 
 
@@ -540,23 +529,65 @@ def clean_pdf_data(data):
     print(df)
 
 
+# merge methods
 def merge_data(dfs):
     # merge all data sources
     merged = pd.concat(dfs)
     merged['property_data_type'] = merged['property_data_type'].apply(lambda x: str(x).lower())
+    merged['value'] = merged['value'].apply(lambda x: round(float(x.replace(',', '')), 2) if isinstance(x, str) else x)
+    merged = merged.drop_duplicates()
     return merged
 
 
+def melt_excel(csv):
+    df_ready = pd.DataFrame(columns=['zip_code','property_data_type','value', 'year', 'month'])
+    df = pd.read_csv(csv)
+    # flatten data
+    flattened_df = pd.melt(df, id_vars=["Property_data_type", "Year", "Population group"], var_name="value name",value_name="value")
+    df_ready["property_data_type"] = flattened_df["Population group"].str.cat(flattened_df["value name"], sep=" ")
+    df_ready["value"] = flattened_df["value"]
+    df_ready["year"] = flattened_df["Year"]
+    df_ready["month"] = 12
+    df_ready["zip_code"] = '4xxxx'
+    return df_ready
+
+
+def melt_csv(csv1, csv2):
+    df_ready = pd.DataFrame(columns=['zip_code','property_data_type','value', 'year', 'month'])
+    df_ready2 = pd.DataFrame(columns=['zip_code','property_data_type','value', 'year', 'month'])
+    df1 = pd.read_csv(csv1)
+    df2 = pd.read_csv(csv2)
+    # flatten housing data
+    flattened_df1 = pd.melt(df1, id_vars=["RegionID", "SizeRank", "RegionName", "RegionType", "StateName", "Year", "Property_data_type"], var_name="value name",value_name="value")
+    df_ready["value"] = flattened_df1["value"]
+    df_ready["property_data_type"] = flattened_df1.apply(
+                                        lambda row: row["value name"] + " " + row["Property_data_type"]
+                                        if "Housing" not in row["value name"] else row["value name"], axis=1)   
+    df_ready["year"] = flattened_df1["Year"]
+    df_ready["month"] = 12
+    df_ready["zip_code"] = flattened_df1["RegionID"].astype(int)
+    # flatten rental data
+    flattened_df2 = pd.melt(df2, id_vars=["RegionName", "Year", "property_data_type"], var_name="value name",value_name="value")
+    df_ready2["value"] = flattened_df2["value"]
+    df_ready2["property_data_type"] = flattened_df2["value name"]
+    df_ready2["year"] = flattened_df2["Year"]
+    df_ready2["month"] = 12
+    # tried to get zip from housing data but the region names are different
+    #flattened_df2 = flattened_df2.merge(flattened_df1[["RegionName", "RegionID"]], on="RegionName", how="left")
+    df_ready2["zip_code"] = '4xxxx'
+
+    df_ready = pd.concat([df_ready, df_ready2])
+    return df_ready
+
+
 def add_calculations(df):
-    print('break')
-    #df['annual_rent'] = df['value ($)'].apply(lambda row: row['value ($)'] * 12 if 'rent' in row['property_data_type'] else 'n/a')
-    print(df)
+    df['annual_rent'] = df.apply(lambda row: row['value'] * 12 if 'rent' in str(row['property_data_type']) else 'n/a', axis=1)
+    inflation_rate = .028 # average inflation rate in the US over past 5 years
+    df['home value increase from inflation'] = df.apply(lambda row: round(row['value'] * inflation_rate, 2) if ('price' in str(row['property_data_type']) and int(row['year']) < 2024) else 'n/a', axis=1)
+    return df
 
 
 if __name__ == "__main__":
-    print(web_scraping_data())
-
-    exit()
 
     print('Extracting data...')
     
@@ -608,5 +639,11 @@ if __name__ == "__main__":
         print(f"Error: {e}")
         print("Error in CSV rental data extraction.")
 
-    df_merged = merge_data([df_web, df_api, df_pdf])
-    add_calculations(df_merged)
+    print("Merging data....")
+    df_excel = melt_excel('OH_Demographic_Data.csv')
+    df_csv = melt_csv('OH_Housing_Data.csv', 'OH_Rental_Data.csv')
+
+    df_merged = merge_data([df_web, df_api, df_pdf, df_excel, df_csv])
+    df_final = add_calculations(df_merged)
+    df_final.to_csv('group_4_final.csv', index=False)
+    print("Data merged and saved to group_4_final.csv")

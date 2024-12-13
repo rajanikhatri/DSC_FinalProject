@@ -1,0 +1,652 @@
+Year,property_data_type,RegionName,StudioMonthlyRent,1BedMonthlyRent,2BedMonthlyRent,3BedMonthlyRent,4BedMonthlyRent
+2018,Rental,"Adams County, OH",539,547,695,871,947
+2018,Rental,"Akron, OH MSA",537,629,826,1048,1125
+2018,Rental,"Akron, OH MSA",537,629,826,1048,1125
+2018,Rental,"Ashland County, OH",518,540,714,985,1148
+2018,Rental,"Ashtabula County, OH",512,523,695,973,976
+2018,Rental,"Athens County, OH",605,669,768,963,1046
+2018,Rental,"Auglaize County, OH",512,535,711,928,1020
+2018,Rental,"Brown County, OH HUD Metro FMR Area",461,526,700,1018,1065
+2018,Rental,"Canton-Massillon, OH MSA",473,539,717,916,977
+2018,Rental,"Canton-Massillon, OH MSA",473,539,717,916,977
+2018,Rental,"Champaign County, OH",495,546,695,1009,1181
+2018,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",556,643,845,1178,1370
+2018,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",556,643,845,1178,1370
+2018,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",556,643,845,1178,1370
+2018,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",556,643,845,1178,1370
+2018,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",556,643,845,1178,1370
+2018,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",556,643,845,1178,1370
+2018,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",556,643,845,1178,1370
+2018,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",556,643,845,1178,1370
+2018,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",556,643,845,1178,1370
+2018,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",556,643,845,1178,1370
+2018,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",556,643,845,1178,1370
+2018,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",556,643,845,1178,1370
+2018,Rental,"Cleveland-Elyria, OH MSA",529,634,785,1032,1091
+2018,Rental,"Cleveland-Elyria, OH MSA",529,634,785,1032,1091
+2018,Rental,"Cleveland-Elyria, OH MSA",529,634,785,1032,1091
+2018,Rental,"Cleveland-Elyria, OH MSA",529,634,785,1032,1091
+2018,Rental,"Cleveland-Elyria, OH MSA",529,634,785,1032,1091
+2018,Rental,"Clinton County, OH",485,573,741,954,1175
+2018,Rental,"Columbiana County, OH",471,561,695,915,1072
+2018,Rental,"Columbus, OH HUD Metro FMR Area",601,714,910,1165,1361
+2018,Rental,"Columbus, OH HUD Metro FMR Area",601,714,910,1165,1361
+2018,Rental,"Columbus, OH HUD Metro FMR Area",601,714,910,1165,1361
+2018,Rental,"Columbus, OH HUD Metro FMR Area",601,714,910,1165,1361
+2018,Rental,"Columbus, OH HUD Metro FMR Area",601,714,910,1165,1361
+2018,Rental,"Columbus, OH HUD Metro FMR Area",601,714,910,1165,1361
+2018,Rental,"Columbus, OH HUD Metro FMR Area",601,714,910,1165,1361
+2018,Rental,"Coshocton County, OH",500,539,695,871,1016
+2018,Rental,"Crawford County, OH",519,523,695,906,947
+2018,Rental,"Darke County, OH",538,542,695,943,947
+2018,Rental,"Dayton-Kettering, OH MSA",517,583,765,1024,1183
+2018,Rental,"Dayton-Kettering, OH MSA",517,583,765,1024,1183
+2018,Rental,"Dayton-Kettering, OH MSA",517,583,765,1024,1183
+2018,Rental,"Defiance County, OH",527,530,705,934,1181
+2018,Rental,"Erie County, OH",510,588,777,1025,1071
+2018,Rental,"Fayette County, OH",484,571,753,944,1167
+2018,Rental,"Gallia County, OH",500,605,695,910,981
+2018,Rental,"Guernsey County, OH",569,572,695,871,1047
+2018,Rental,"Hancock County, OH",549,552,726,1003,1119
+2018,Rental,"Hardin County, OH",505,528,702,924,974
+2018,Rental,"Harrison County, OH",500,523,695,871,969
+2018,Rental,"Henry County, OH",500,596,695,1011,1045
+2018,Rental,"Highland County, OH",500,583,695,958,1038
+2018,Rental,"Hocking County, OH HUD Metro FMR Area",582,586,695,1011,1205
+2018,Rental,"Holmes County, OH",500,558,695,871,947
+2018,Rental,"Huron County, OH",484,542,695,925,1047
+2018,Rental,"Jackson County, OH",500,573,695,990,1022
+2018,Rental,"Knox County, OH",533,553,715,947,1070
+2018,Rental,"Lima, OH MSA",530,549,695,916,947
+2018,Rental,"Logan County, OH",544,568,756,948,1061
+2018,Rental,"Mansfield, OH MSA",485,523,695,941,1072
+2018,Rental,"Marion County, OH",492,580,772,968,1051
+2018,Rental,"Meigs County, OH",443,529,695,871,986
+2018,Rental,"Mercer County, OH",500,523,695,888,947
+2018,Rental,"Monroe County, OH",500,592,695,940,1068
+2018,Rental,"Morgan County, OH",507,605,695,905,986
+2018,Rental,"Muskingum County, OH",447,570,700,907,1021
+2018,Rental,"Noble County, OH",500,532,695,871,947
+2018,Rental,"Ottawa County, OH HUD Metro FMR Area",530,599,737,944,1224
+2018,Rental,"Paulding County, OH",500,561,695,871,976
+2018,Rental,"Perry County, OH HUD Metro FMR Area",443,535,695,974,1045
+2018,Rental,"Pike County, OH",500,550,695,1011,1095
+2018,Rental,"Preble County, OH",477,539,714,969,972
+2018,Rental,"Putnam County, OH",509,573,708,888,964
+2018,Rental,"Ross County, OH",562,566,753,944,1026
+2018,Rental,"Sandusky County, OH",483,555,695,928,1090
+2018,Rental,"Scioto County, OH",443,605,695,941,1108
+2018,Rental,"Seneca County, OH",519,523,695,943,947
+2018,Rental,"Shelby County, OH",521,586,724,908,1031
+2018,Rental,"Springfield, OH MSA",483,572,731,936,1044
+2018,Rental,"Toledo, OH HUD Metro FMR Area",465,557,726,994,1093
+2018,Rental,"Toledo, OH HUD Metro FMR Area",465,557,726,994,1093
+2018,Rental,"Toledo, OH HUD Metro FMR Area",465,557,726,994,1093
+2018,Rental,"Tuscarawas County, OH",497,564,750,940,1021
+2018,Rental,"Union County, OH HUD Metro FMR Area",587,668,889,1194,1211
+2018,Rental,"Van Wert County, OH",500,523,695,955,968
+2018,Rental,"Vinton County, OH",500,605,695,1011,1224
+2018,Rental,"Washington County, OH",449,544,695,935,1083
+2018,Rental,"Wayne County, OH",537,571,723,906,995
+2018,Rental,"Williams County, OH",500,546,695,900,1103
+2018,Rental,"Wyandot County, OH",500,548,695,895,985
+2018,Rental,"Youngstown-Warren-Boardman, OH HUD Metro FMR Area",485,555,695,911,1012
+2018,Rental,"Youngstown-Warren-Boardman, OH HUD Metro FMR Area",485,555,695,911,1012
+2019,Rental,"Adams County, OH",533,536,682,854,922
+2019,Rental,"Akron, OH MSA",527,623,810,1019,1095
+2019,Rental,"Akron, OH MSA",527,623,810,1019,1095
+2019,Rental,"Ashland County, OH",467,530,691,916,1103
+2019,Rental,"Ashtabula County, OH",502,526,696,957,972
+2019,Rental,"Athens County, OH",643,669,766,960,1035
+2019,Rental,"Auglaize County, OH",504,521,682,903,933
+2019,Rental,"Brown County, OH HUD Metro FMR Area",485,553,731,1030,1062
+2019,Rental,"Canton-Massillon, OH MSA",506,586,775,989,1048
+2019,Rental,"Canton-Massillon, OH MSA",506,586,775,989,1048
+2019,Rental,"Champaign County, OH",540,543,682,982,1190
+2019,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",584,670,884,1223,1414
+2019,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",584,670,884,1223,1414
+2019,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",584,670,884,1223,1414
+2019,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",584,670,884,1223,1414
+2019,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",584,670,884,1223,1414
+2019,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",584,670,884,1223,1414
+2019,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",584,670,884,1223,1414
+2019,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",584,670,884,1223,1414
+2019,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",584,670,884,1223,1414
+2019,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",584,670,884,1223,1414
+2019,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",584,670,884,1223,1414
+2019,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",584,670,884,1223,1414
+2019,Rental,"Cleveland-Elyria, OH MSA",569,678,836,1102,1158
+2019,Rental,"Cleveland-Elyria, OH MSA",569,678,836,1102,1158
+2019,Rental,"Cleveland-Elyria, OH MSA",569,678,836,1102,1158
+2019,Rental,"Cleveland-Elyria, OH MSA",569,678,836,1102,1158
+2019,Rental,"Cleveland-Elyria, OH MSA",569,678,836,1102,1158
+2019,Rental,"Clinton County, OH",449,550,699,937,1134
+2019,Rental,"Columbiana County, OH",469,555,682,904,1028
+2019,Rental,"Columbus, OH HUD Metro FMR Area",643,761,957,1225,1424
+2019,Rental,"Columbus, OH HUD Metro FMR Area",643,761,957,1225,1424
+2019,Rental,"Columbus, OH HUD Metro FMR Area",643,761,957,1225,1424
+2019,Rental,"Columbus, OH HUD Metro FMR Area",643,761,957,1225,1424
+2019,Rental,"Columbus, OH HUD Metro FMR Area",643,761,957,1225,1424
+2019,Rental,"Columbus, OH HUD Metro FMR Area",643,761,957,1225,1424
+2019,Rental,"Columbus, OH HUD Metro FMR Area",643,761,957,1225,1424
+2019,Rental,"Coshocton County, OH",498,527,682,859,985
+2019,Rental,"Crawford County, OH",533,536,682,854,922
+2019,Rental,"Darke County, OH",520,523,682,918,922
+2019,Rental,"Dayton-Kettering, OH MSA",524,599,788,1053,1189
+2019,Rental,"Dayton-Kettering, OH MSA",524,599,788,1053,1189
+2019,Rental,"Dayton-Kettering, OH MSA",524,599,788,1053,1189
+2019,Rental,"Defiance County, OH",502,522,691,923,1141
+2019,Rental,"Erie County, OH",486,566,748,962,1064
+2019,Rental,"Fayette County, OH",470,571,732,917,1114
+2019,Rental,"Gallia County, OH",498,596,682,883,982
+2019,Rental,"Guernsey County, OH",557,560,682,854,1057
+2019,Rental,"Hancock County, OH",561,564,743,1014,1177
+2019,Rental,"Hardin County, OH",498,516,682,918,922
+2019,Rental,"Harrison County, OH",498,532,682,854,1001
+2019,Rental,"Henry County, OH",498,596,682,964,968
+2019,Rental,"Highland County, OH",498,566,682,944,1061
+2019,Rental,"Hocking County, OH HUD Metro FMR Area",568,571,682,986,1198
+2019,Rental,"Holmes County, OH",498,539,682,856,922
+2019,Rental,"Huron County, OH",493,525,682,902,1027
+2019,Rental,"Jackson County, OH",498,537,682,934,1036
+2019,Rental,"Knox County, OH",536,545,702,922,1012
+2019,Rental,"Lima, OH MSA",516,562,687,920,945
+2019,Rental,"Logan County, OH",542,561,742,944,1003
+2019,Rental,"Mansfield, OH MSA",461,516,682,904,1061
+2019,Rental,"Marion County, OH",486,572,756,947,1022
+2019,Rental,"Meigs County, OH",438,564,682,854,959
+2019,Rental,"Mercer County, OH",512,516,682,874,922
+2019,Rental,"Monroe County, OH",498,594,682,931,1071
+2019,Rental,"Morgan County, OH",498,596,682,862,959
+2019,Rental,"Muskingum County, OH",446,557,690,865,1010
+2019,Rental,"Noble County, OH",504,538,690,865,933
+2019,Rental,"Ottawa County, OH HUD Metro FMR Area",523,579,716,897,1138
+2019,Rental,"Paulding County, OH",498,566,682,854,954
+2019,Rental,"Perry County, OH HUD Metro FMR Area",481,542,717,949,1086
+2019,Rental,"Pike County, OH",498,556,682,978,1057
+2019,Rental,"Preble County, OH",464,522,691,931,934
+2019,Rental,"Putnam County, OH",498,550,682,854,922
+2019,Rental,"Ross County, OH",560,564,732,917,989
+2019,Rental,"Sandusky County, OH",498,544,682,908,1047
+2019,Rental,"Scioto County, OH",438,596,682,966,1070
+2019,Rental,"Seneca County, OH",512,516,682,906,922
+2019,Rental,"Shelby County, OH",514,577,703,886,1018
+2019,Rental,"Springfield, OH MSA",506,613,788,1001,1069
+2019,Rental,"Toledo, OH HUD Metro FMR Area",477,560,727,994,1094
+2019,Rental,"Toledo, OH HUD Metro FMR Area",477,560,727,994,1094
+2019,Rental,"Toledo, OH HUD Metro FMR Area",477,560,727,994,1094
+2019,Rental,"Tuscarawas County, OH",490,562,743,931,1004
+2019,Rental,"Union County, OH HUD Metro FMR Area",624,703,930,1223,1261
+2019,Rental,"Van Wert County, OH",498,516,682,928,931
+2019,Rental,"Vinton County, OH",498,596,682,959,1198
+2019,Rental,"Washington County, OH",498,527,682,884,1025
+2019,Rental,"Wayne County, OH",565,575,735,922,1028
+2019,Rental,"Williams County, OH",498,544,682,883,1014
+2019,Rental,"Wyandot County, OH",498,526,682,854,937
+2019,Rental,"Youngstown-Warren-Boardman, OH HUD Metro FMR Area",473,544,685,897,992
+2019,Rental,"Youngstown-Warren-Boardman, OH HUD Metro FMR Area",473,544,685,897,992
+2020,Rental,"Adams County, OH",564,567,696,881,943
+2020,Rental,"Akron, OH MSA",557,659,847,1065,1147
+2020,Rental,"Akron, OH MSA",557,659,847,1065,1147
+2020,Rental,"Ashland County, OH",453,538,696,894,1111
+2020,Rental,"Ashtabula County, OH",490,528,696,950,978
+2020,Rental,"Athens County, OH",685,705,802,999,1086
+2020,Rental,"Auglaize County, OH",515,541,696,949,950
+2020,Rental,"Brown County, OH HUD Metro FMR Area",471,541,713,933,966
+2020,Rental,"Canton-Massillon, OH MSA",500,579,763,972,1034
+2020,Rental,"Canton-Massillon, OH MSA",500,579,763,972,1034
+2020,Rental,"Champaign County, OH",556,559,702,998,1190
+2020,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",568,658,865,1185,1362
+2020,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",568,658,865,1185,1362
+2020,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",568,658,865,1185,1362
+2020,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",568,658,865,1185,1362
+2020,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",568,658,865,1185,1362
+2020,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",568,658,865,1185,1362
+2020,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",568,658,865,1185,1362
+2020,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",568,658,865,1185,1362
+2020,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",568,658,865,1185,1362
+2020,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",568,658,865,1185,1362
+2020,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",568,658,865,1185,1362
+2020,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",568,658,865,1185,1362
+2020,Rental,"Cleveland-Elyria, OH MSA",585,691,849,1119,1174
+2020,Rental,"Cleveland-Elyria, OH MSA",585,691,849,1119,1174
+2020,Rental,"Cleveland-Elyria, OH MSA",585,691,849,1119,1174
+2020,Rental,"Cleveland-Elyria, OH MSA",585,691,849,1119,1174
+2020,Rental,"Cleveland-Elyria, OH MSA",585,691,849,1119,1174
+2020,Rental,"Clinton County, OH",473,588,726,980,1189
+2020,Rental,"Columbiana County, OH",473,590,696,927,1044
+2020,Rental,"Columbus, OH HUD Metro FMR Area",677,794,992,1262,1449
+2020,Rental,"Columbus, OH HUD Metro FMR Area",677,794,992,1262,1449
+2020,Rental,"Columbus, OH HUD Metro FMR Area",677,794,992,1262,1449
+2020,Rental,"Columbus, OH HUD Metro FMR Area",677,794,992,1262,1449
+2020,Rental,"Columbus, OH HUD Metro FMR Area",677,794,992,1262,1449
+2020,Rental,"Columbus, OH HUD Metro FMR Area",677,794,992,1262,1449
+2020,Rental,"Columbus, OH HUD Metro FMR Area",677,794,992,1262,1449
+2020,Rental,"Coshocton County, OH",517,532,696,887,1012
+2020,Rental,"Crawford County, OH",563,567,696,872,943
+2020,Rental,"Darke County, OH",531,534,696,939,943
+2020,Rental,"Dayton-Kettering, OH MSA",523,596,777,1045,1143
+2020,Rental,"Dayton-Kettering, OH MSA",523,596,777,1045,1143
+2020,Rental,"Dayton-Kettering, OH MSA",523,596,777,1045,1143
+2020,Rental,"Defiance County, OH",523,528,696,960,1027
+2020,Rental,"Erie County, OH",516,581,758,958,1153
+2020,Rental,"Fayette County, OH",508,583,737,918,1057
+2020,Rental,"Gallia County, OH",517,564,696,867,997
+2020,Rental,"Guernsey County, OH",517,551,696,867,1059
+2020,Rental,"Hancock County, OH",576,580,757,1018,1316
+2020,Rental,"Hardin County, OH",517,536,696,917,943
+2020,Rental,"Harrison County, OH",517,555,696,867,1040
+2020,Rental,"Henry County, OH",517,611,696,987,991
+2020,Rental,"Highland County, OH",517,568,696,967,1052
+2020,Rental,"Hocking County, OH HUD Metro FMR Area",548,551,696,972,1079
+2020,Rental,"Holmes County, OH",517,528,696,867,943
+2020,Rental,"Huron County, OH",526,528,696,904,1022
+2020,Rental,"Jackson County, OH",519,531,699,918,1102
+2020,Rental,"Knox County, OH",564,566,707,938,984
+2020,Rental,"Lima, OH MSA",516,594,712,953,987
+2020,Rental,"Logan County, OH",570,582,767,985,1039
+2020,Rental,"Mansfield, OH MSA",469,528,696,927,1086
+2020,Rental,"Marion County, OH",524,582,767,956,1039
+2020,Rental,"Meigs County, OH",453,611,696,867,1151
+2020,Rental,"Mercer County, OH",525,528,696,896,944
+2020,Rental,"Monroe County, OH",517,611,696,953,1098
+2020,Rental,"Morgan County, OH",517,611,696,867,977
+2020,Rental,"Muskingum County, OH",499,568,719,896,1066
+2020,Rental,"Noble County, OH",518,593,698,870,946
+2020,Rental,"Ottawa County, OH HUD Metro FMR Area",531,574,715,891,1073
+2020,Rental,"Paulding County, OH",517,592,696,893,974
+2020,Rental,"Perry County, OH HUD Metro FMR Area",498,554,729,916,1109
+2020,Rental,"Pike County, OH",517,576,696,935,1037
+2020,Rental,"Preble County, OH",518,536,706,981,984
+2020,Rental,"Putnam County, OH",517,586,696,885,967
+2020,Rental,"Ross County, OH",586,590,761,948,1031
+2020,Rental,"Sandusky County, OH",519,559,699,940,1026
+2020,Rental,"Scioto County, OH",468,611,696,1004,1062
+2020,Rental,"Seneca County, OH",528,542,696,898,961
+2020,Rental,"Shelby County, OH",523,585,704,915,1027
+2020,Rental,"Springfield, OH MSA",496,590,761,962,1031
+2020,Rental,"Toledo, OH HUD Metro FMR Area",505,592,767,1044,1150
+2020,Rental,"Toledo, OH HUD Metro FMR Area",505,592,767,1044,1150
+2020,Rental,"Toledo, OH HUD Metro FMR Area",505,592,767,1044,1150
+2020,Rental,"Tuscarawas County, OH",496,575,757,943,1025
+2020,Rental,"Union County, OH HUD Metro FMR Area",675,751,989,1252,1401
+2020,Rental,"Van Wert County, OH",518,530,698,942,946
+2020,Rental,"Vinton County, OH",517,611,696,902,1222
+2020,Rental,"Washington County, OH",517,540,696,868,1022
+2020,Rental,"Wayne County, OH",563,566,731,923,1035
+2020,Rental,"Williams County, OH",517,556,696,897,996
+2020,Rental,"Wyandot County, OH",517,539,696,867,943
+2020,Rental,"Youngstown-Warren-Boardman, OH HUD Metro FMR Area",482,557,700,917,1003
+2020,Rental,"Youngstown-Warren-Boardman, OH HUD Metro FMR Area",482,557,700,917,1003
+2021,Rental,"Adams County, OH",548,605,734,950,995
+2021,Rental,"Akron, OH MSA",566,664,849,1069,1151
+2021,Rental,"Akron, OH MSA",566,664,849,1069,1151
+2021,Rental,"Ashland County, OH",490,564,743,949,1195
+2021,Rental,"Ashtabula County, OH",497,557,734,983,1031
+2021,Rental,"Athens County, OH",722,739,842,1047,1142
+2021,Rental,"Auglaize County, OH",555,583,734,1031,1086
+2021,Rental,"Brown County, OH HUD Metro FMR Area",487,560,738,927,1001
+2021,Rental,"Canton-Massillon, OH MSA",495,570,751,958,1018
+2021,Rental,"Canton-Massillon, OH MSA",495,570,751,958,1018
+2021,Rental,"Champaign County, OH",552,581,740,1047,1174
+2021,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",604,698,916,1244,1425
+2021,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",604,698,916,1244,1425
+2021,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",604,698,916,1244,1425
+2021,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",604,698,916,1244,1425
+2021,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",604,698,916,1244,1425
+2021,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",604,698,916,1244,1425
+2021,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",604,698,916,1244,1425
+2021,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",604,698,916,1244,1425
+2021,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",604,698,916,1244,1425
+2021,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",604,698,916,1244,1425
+2021,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",604,698,916,1244,1425
+2021,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",604,698,916,1244,1425
+2021,Rental,"Cleveland-Elyria, OH MSA",599,705,865,1137,1188
+2021,Rental,"Cleveland-Elyria, OH MSA",599,705,865,1137,1188
+2021,Rental,"Cleveland-Elyria, OH MSA",599,705,865,1137,1188
+2021,Rental,"Cleveland-Elyria, OH MSA",599,705,865,1137,1188
+2021,Rental,"Cleveland-Elyria, OH MSA",599,705,865,1137,1188
+2021,Rental,"Clinton County, OH",490,610,742,1000,1209
+2021,Rental,"Columbiana County, OH",487,627,734,981,1063
+2021,Rental,"Columbus, OH HUD Metro FMR Area",717,827,1031,1298,1468
+2021,Rental,"Columbus, OH HUD Metro FMR Area",717,827,1031,1298,1468
+2021,Rental,"Columbus, OH HUD Metro FMR Area",717,827,1031,1298,1468
+2021,Rental,"Columbus, OH HUD Metro FMR Area",717,827,1031,1298,1468
+2021,Rental,"Columbus, OH HUD Metro FMR Area",717,827,1031,1298,1468
+2021,Rental,"Columbus, OH HUD Metro FMR Area",717,827,1031,1298,1468
+2021,Rental,"Columbus, OH HUD Metro FMR Area",717,827,1031,1298,1468
+2021,Rental,"Coshocton County, OH",548,560,734,957,1091
+2021,Rental,"Crawford County, OH",573,605,734,918,995
+2021,Rental,"Darke County, OH",548,583,734,993,995
+2021,Rental,"Dayton-Kettering, OH MSA",563,647,836,1122,1214
+2021,Rental,"Dayton-Kettering, OH MSA",563,647,836,1122,1214
+2021,Rental,"Dayton-Kettering, OH MSA",563,647,836,1122,1214
+2021,Rental,"Defiance County, OH",557,561,739,1027,1036
+2021,Rental,"Erie County, OH",586,633,815,1016,1245
+2021,Rental,"Fayette County, OH",535,610,769,956,1062
+2021,Rental,"Gallia County, OH",548,580,734,913,1076
+2021,Rental,"Guernsey County, OH",552,562,740,925,1130
+2021,Rental,"Hancock County, OH",624,625,801,1063,1387
+2021,Rental,"Hardin County, OH",548,586,734,967,995
+2021,Rental,"Harrison County, OH",548,588,734,913,1057
+2021,Rental,"Henry County, OH",548,644,734,1036,1055
+2021,Rental,"Highland County, OH",587,590,734,1001,1069
+2021,Rental,"Hocking County, OH HUD Metro FMR Area",563,567,734,1016,1071
+2021,Rental,"Holmes County, OH",548,557,734,913,995
+2021,Rental,"Huron County, OH",567,568,749,961,1071
+2021,Rental,"Jackson County, OH",548,558,735,985,1159
+2021,Rental,"Knox County, OH",607,610,755,1007,1024
+2021,Rental,"Lima, OH MSA",538,615,747,986,1072
+2021,Rental,"Logan County, OH",596,606,799,1039,1083
+2021,Rental,"Mansfield, OH MSA",495,557,734,982,1159
+2021,Rental,"Marion County, OH",604,619,816,1015,1107
+2021,Rental,"Meigs County, OH",484,644,734,913,1246
+2021,Rental,"Mercer County, OH",553,557,734,955,995
+2021,Rental,"Monroe County, OH",548,644,734,965,1105
+2021,Rental,"Morgan County, OH",548,644,734,913,1029
+2021,Rental,"Muskingum County, OH",576,579,754,938,1099
+2021,Rental,"Noble County, OH",548,644,734,913,995
+2021,Rental,"Ottawa County, OH HUD Metro FMR Area",593,633,795,989,1164
+2021,Rental,"Paulding County, OH",548,632,734,970,1000
+2021,Rental,"Perry County, OH HUD Metro FMR Area",511,557,734,913,1138
+2021,Rental,"Pike County, OH",548,605,734,979,1083
+2021,Rental,"Preble County, OH",568,572,754,1027,1125
+2021,Rental,"Putnam County, OH",548,612,734,913,1002
+2021,Rental,"Ross County, OH",616,623,792,985,1074
+2021,Rental,"Sandusky County, OH",557,598,747,1018,1100
+2021,Rental,"Scioto County, OH",530,644,734,1050,1148
+2021,Rental,"Seneca County, OH",543,594,748,937,1027
+2021,Rental,"Shelby County, OH",549,614,736,999,1076
+2021,Rental,"Springfield, OH MSA",523,612,792,997,1074
+2021,Rental,"Toledo, OH HUD Metro FMR Area",535,613,793,1077,1179
+2021,Rental,"Toledo, OH HUD Metro FMR Area",535,613,793,1077,1179
+2021,Rental,"Toledo, OH HUD Metro FMR Area",535,613,793,1077,1179
+2021,Rental,"Tuscarawas County, OH",581,606,799,994,1083
+2021,Rental,"Union County, OH HUD Metro FMR Area",752,820,1081,1345,1553
+2021,Rental,"Van Wert County, OH",548,559,734,992,995
+2021,Rental,"Vinton County, OH",548,644,734,913,1271
+2021,Rental,"Washington County, OH",550,576,737,917,1062
+2021,Rental,"Wayne County, OH",600,604,796,1011,1118
+2021,Rental,"Williams County, OH",548,586,734,934,1009
+2021,Rental,"Wyandot County, OH",548,579,734,913,995
+2021,Rental,"Youngstown-Warren-Boardman, OH HUD Metro FMR Area",511,585,734,966,1036
+2021,Rental,"Youngstown-Warren-Boardman, OH HUD Metro FMR Area",511,585,734,966,1036
+2022,Rental,"Adams County, OH",547,591,738,940,1001
+2022,Rental,"Akron, OH MSA",610,702,890,1126,1207
+2022,Rental,"Akron, OH MSA",610,702,890,1126,1207
+2022,Rental,"Ashland County, OH",490,561,738,930,1198
+2022,Rental,"Ashtabula County, OH",495,566,738,982,1040
+2022,Rental,"Athens County, OH",738,762,868,1073,1177
+2022,Rental,"Auglaize County, OH",556,591,738,1048,1152
+2022,Rental,"Brown County, OH HUD Metro FMR Area",527,603,793,980,1075
+2022,Rental,"Canton-Massillon, OH MSA",510,584,768,976,1041
+2022,Rental,"Canton-Massillon, OH MSA",510,584,768,976,1041
+2022,Rental,"Champaign County, OH",556,579,750,1041,1144
+2022,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",643,742,968,1302,1483
+2022,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",643,742,968,1302,1483
+2022,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",643,742,968,1302,1483
+2022,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",643,742,968,1302,1483
+2022,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",643,742,968,1302,1483
+2022,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",643,742,968,1302,1483
+2022,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",643,742,968,1302,1483
+2022,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",643,742,968,1302,1483
+2022,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",643,742,968,1302,1483
+2022,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",643,742,968,1302,1483
+2022,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",643,742,968,1302,1483
+2022,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",643,742,968,1302,1483
+2022,Rental,"Cleveland-Elyria, OH MSA",632,732,893,1169,1224
+2022,Rental,"Cleveland-Elyria, OH MSA",632,732,893,1169,1224
+2022,Rental,"Cleveland-Elyria, OH MSA",632,732,893,1169,1224
+2022,Rental,"Cleveland-Elyria, OH MSA",632,732,893,1169,1224
+2022,Rental,"Cleveland-Elyria, OH MSA",632,732,893,1169,1224
+2022,Rental,"Clinton County, OH",513,629,772,1027,1221
+2022,Rental,"Columbiana County, OH",490,635,738,992,1075
+2022,Rental,"Columbus, OH HUD Metro FMR Area",730,829,1032,1281,1426
+2022,Rental,"Columbus, OH HUD Metro FMR Area",730,829,1032,1281,1426
+2022,Rental,"Columbus, OH HUD Metro FMR Area",730,829,1032,1281,1426
+2022,Rental,"Columbus, OH HUD Metro FMR Area",730,829,1032,1281,1426
+2022,Rental,"Columbus, OH HUD Metro FMR Area",730,829,1032,1281,1426
+2022,Rental,"Columbus, OH HUD Metro FMR Area",730,829,1032,1281,1426
+2022,Rental,"Columbus, OH HUD Metro FMR Area",730,829,1032,1281,1426
+2022,Rental,"Coshocton County, OH",547,563,738,1000,1104
+2022,Rental,"Crawford County, OH",534,610,738,938,1001
+2022,Rental,"Darke County, OH",547,609,738,999,1002
+2022,Rental,"Dayton-Kettering, OH MSA",606,680,872,1164,1248
+2022,Rental,"Dayton-Kettering, OH MSA",606,680,872,1164,1248
+2022,Rental,"Dayton-Kettering, OH MSA",606,680,872,1164,1248
+2022,Rental,"Defiance County, OH",572,576,758,1054,1096
+2022,Rental,"Erie County, OH",636,645,808,999,1224
+2022,Rental,"Fayette County, OH",526,596,750,936,1027
+2022,Rental,"Gallia County, OH",547,611,738,912,1082
+2022,Rental,"Guernsey County, OH",497,561,738,932,1147
+2022,Rental,"Hancock County, OH",562,647,820,1075,1404
+2022,Rental,"Hardin County, OH",547,608,738,948,1001
+2022,Rental,"Harrison County, OH",547,563,738,924,1001
+2022,Rental,"Henry County, OH",547,648,738,1001,1098
+2022,Rental,"Highland County, OH",590,594,738,992,1051
+2022,Rental,"Hocking County, OH HUD Metro FMR Area",557,561,738,1032,1054
+2022,Rental,"Holmes County, OH",547,561,738,912,1001
+2022,Rental,"Huron County, OH",568,575,756,965,1042
+2022,Rental,"Jackson County, OH",547,561,738,1005,1177
+2022,Rental,"Knox County, OH",600,604,746,1007,1012
+2022,Rental,"Lima, OH MSA",567,622,767,999,1120
+2022,Rental,"Logan County, OH",584,599,788,1018,1069
+2022,Rental,"Mansfield, OH MSA",497,563,738,994,1157
+2022,Rental,"Marion County, OH",624,629,827,1022,1121
+2022,Rental,"Meigs County, OH",490,648,738,912,1263
+2022,Rental,"Mercer County, OH",557,561,738,984,1001
+2022,Rental,"Monroe County, OH",547,648,738,948,1070
+2022,Rental,"Morgan County, OH",547,639,738,912,1037
+2022,Rental,"Muskingum County, OH",568,572,752,957,1056
+2022,Rental,"Noble County, OH",547,648,738,912,1037
+2022,Rental,"Ottawa County, OH HUD Metro FMR Area",538,617,785,970,1148
+2022,Rental,"Paulding County, OH",547,643,738,995,1060
+2022,Rental,"Perry County, OH HUD Metro FMR Area",523,561,738,912,1060
+2022,Rental,"Pike County, OH",547,583,738,946,1062
+2022,Rental,"Preble County, OH",578,582,766,1009,1200
+2022,Rental,"Putnam County, OH",547,628,738,912,1001
+2022,Rental,"Ross County, OH",572,617,784,969,1063
+2022,Rental,"Sandusky County, OH",552,598,744,1040,1109
+2022,Rental,"Scioto County, OH",585,648,738,1048,1125
+2022,Rental,"Seneca County, OH",523,589,738,917,1026
+2022,Rental,"Shelby County, OH",521,617,740,1002,1087
+2022,Rental,"Springfield, OH MSA",564,635,821,1020,1113
+2022,Rental,"Toledo, OH HUD Metro FMR Area",553,623,806,1094,1193
+2022,Rental,"Toledo, OH HUD Metro FMR Area",553,623,806,1094,1193
+2022,Rental,"Toledo, OH HUD Metro FMR Area",553,623,806,1094,1193
+2022,Rental,"Tuscarawas County, OH",612,616,811,1004,1135
+2022,Rental,"Union County, OH HUD Metro FMR Area",757,812,1069,1321,1450
+2022,Rental,"Van Wert County, OH",547,568,738,990,1001
+2022,Rental,"Vinton County, OH",547,607,738,912,1204
+2022,Rental,"Washington County, OH",580,584,738,912,1072
+2022,Rental,"Wayne County, OH",584,598,787,1018,1118
+2022,Rental,"Williams County, OH",547,599,738,924,1001
+2022,Rental,"Wyandot County, OH",547,597,738,912,1005
+2022,Rental,"Youngstown-Warren-Boardman, OH HUD Metro FMR Area",522,589,738,977,1038
+2022,Rental,"Youngstown-Warren-Boardman, OH HUD Metro FMR Area",522,589,738,977,1038
+2023,Rental,"Adams County, OH",587,603,794,999,1067
+2023,Rental,"Akron, OH MSA",712,809,1027,1297,1380
+2023,Rental,"Akron, OH MSA",712,809,1027,1297,1380
+2023,Rental,"Ashland County, OH",531,603,794,1010,1288
+2023,Rental,"Ashtabula County, OH",531,617,794,1021,1119
+2023,Rental,"Athens County, OH",779,792,926,1127,1303
+2023,Rental,"Auglaize County, OH",641,645,794,1128,1310
+2023,Rental,"Brown County, OH HUD Metro FMR Area",666,670,882,1104,1247
+2023,Rental,"Canton-Massillon, OH MSA",576,654,861,1086,1157
+2023,Rental,"Canton-Massillon, OH MSA",576,654,861,1086,1157
+2023,Rental,"Champaign County, OH",643,647,822,1128,1193
+2023,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",731,839,1093,1464,1645
+2023,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",731,839,1093,1464,1645
+2023,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",731,839,1093,1464,1645
+2023,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",731,839,1093,1464,1645
+2023,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",731,839,1093,1464,1645
+2023,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",731,839,1093,1464,1645
+2023,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",731,839,1093,1464,1645
+2023,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",731,839,1093,1464,1645
+2023,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",731,839,1093,1464,1645
+2023,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",731,839,1093,1464,1645
+2023,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",731,839,1093,1464,1645
+2023,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",731,839,1093,1464,1645
+2023,Rental,"Cleveland-Elyria, OH MSA",719,820,998,1296,1369
+2023,Rental,"Cleveland-Elyria, OH MSA",719,820,998,1296,1369
+2023,Rental,"Cleveland-Elyria, OH MSA",719,820,998,1296,1369
+2023,Rental,"Cleveland-Elyria, OH MSA",719,820,998,1296,1369
+2023,Rental,"Cleveland-Elyria, OH MSA",719,820,998,1296,1369
+2023,Rental,"Clinton County, OH",618,684,837,1092,1288
+2023,Rental,"Columbiana County, OH",531,662,794,1048,1116
+2023,Rental,"Columbus, OH HUD Metro FMR Area",842,941,1163,1426,1577
+2023,Rental,"Columbus, OH HUD Metro FMR Area",842,941,1163,1426,1577
+2023,Rental,"Columbus, OH HUD Metro FMR Area",842,941,1163,1426,1577
+2023,Rental,"Columbus, OH HUD Metro FMR Area",842,941,1163,1426,1577
+2023,Rental,"Columbus, OH HUD Metro FMR Area",842,941,1163,1426,1577
+2023,Rental,"Columbus, OH HUD Metro FMR Area",842,941,1163,1426,1577
+2023,Rental,"Columbus, OH HUD Metro FMR Area",842,941,1163,1426,1577
+2023,Rental,"Coshocton County, OH",587,637,794,1098,1214
+2023,Rental,"Crawford County, OH",541,655,794,1033,1067
+2023,Rental,"Darke County, OH",587,682,794,1084,1137
+2023,Rental,"Dayton-Kettering, OH MSA",684,757,969,1271,1385
+2023,Rental,"Dayton-Kettering, OH MSA",684,757,969,1271,1385
+2023,Rental,"Dayton-Kettering, OH MSA",684,757,969,1271,1385
+2023,Rental,"Defiance County, OH",626,631,831,1117,1180
+2023,Rental,"Erie County, OH",726,731,912,1110,1375
+2023,Rental,"Fayette County, OH",566,655,807,1026,1144
+2023,Rental,"Gallia County, OH",587,680,794,966,1155
+2023,Rental,"Guernsey County, OH",571,649,854,1069,1301
+2023,Rental,"Hancock County, OH",605,709,905,1170,1477
+2023,Rental,"Hardin County, OH",587,655,794,1021,1105
+2023,Rental,"Harrison County, OH",587,603,794,1063,1067
+2023,Rental,"Henry County, OH",552,703,794,1053,1228
+2023,Rental,"Highland County, OH",587,646,794,1018,1187
+2023,Rental,"Hocking County, OH HUD Metro FMR Area",602,606,794,1114,1118
+2023,Rental,"Holmes County, OH",587,603,794,978,1067
+2023,Rental,"Huron County, OH",599,615,810,1050,1143
+2023,Rental,"Jackson County, OH",587,607,794,1091,1260
+2023,Rental,"Knox County, OH",635,686,859,1149,1154
+2023,Rental,"Lima, OH MSA",657,680,854,1086,1246
+2023,Rental,"Logan County, OH",615,632,832,1068,1118
+2023,Rental,"Mansfield, OH MSA",554,620,794,1073,1258
+2023,Rental,"Marion County, OH",657,675,889,1082,1194
+2023,Rental,"Meigs County, OH",531,693,794,968,1352
+2023,Rental,"Mercer County, OH",599,603,794,1063,1067
+2023,Rental,"Monroe County, OH",587,651,794,1007,1095
+2023,Rental,"Morgan County, OH",587,703,794,966,1232
+2023,Rental,"Muskingum County, OH",615,619,806,1062,1122
+2023,Rental,"Noble County, OH",587,703,794,966,1119
+2023,Rental,"Ottawa County, OH HUD Metro FMR Area",619,703,926,1127,1276
+2023,Rental,"Paulding County, OH",587,691,794,1079,1182
+2023,Rental,"Perry County, OH HUD Metro FMR Area",578,606,798,983,1072
+2023,Rental,"Pike County, OH",587,606,794,978,1146
+2023,Rental,"Preble County, OH",619,623,820,1066,1301
+2023,Rental,"Putnam County, OH",587,665,794,966,1067
+2023,Rental,"Ross County, OH",624,690,856,1045,1168
+2023,Rental,"Sandusky County, OH",594,648,804,1143,1203
+2023,Rental,"Scioto County, OH",589,703,794,1109,1213
+2023,Rental,"Seneca County, OH",585,624,794,989,1133
+2023,Rental,"Shelby County, OH",566,660,811,1102,1204
+2023,Rental,"Springfield, OH MSA",609,691,909,1108,1221
+2023,Rental,"Toledo, OH HUD Metro FMR Area",637,698,906,1218,1310
+2023,Rental,"Toledo, OH HUD Metro FMR Area",637,698,906,1218,1310
+2023,Rental,"Toledo, OH HUD Metro FMR Area",637,698,906,1218,1310
+2023,Rental,"Tuscarawas County, OH",651,655,862,1076,1243
+2023,Rental,"Union County, OH HUD Metro FMR Area",859,900,1185,1442,1592
+2023,Rental,"Van Wert County, OH",587,612,794,1036,1067
+2023,Rental,"Vinton County, OH",587,618,794,966,1102
+2023,Rental,"Washington County, OH",610,614,794,991,1130
+2023,Rental,"Wayne County, OH",611,654,861,1103,1205
+2023,Rental,"Williams County, OH",531,669,794,1007,1067
+2023,Rental,"Wyandot County, OH",587,652,794,966,1148
+2023,Rental,"Youngstown-Warren-Boardman, OH HUD Metro FMR Area",573,632,794,1050,1113
+2023,Rental,"Youngstown-Warren-Boardman, OH HUD Metro FMR Area",573,632,794,1050,1113
+2024,Rental,"Adams County, OH",639,655,860,1076,1145
+2024,Rental,"Akron, OH MSA",728,816,1039,1301,1389
+2024,Rental,"Akron, OH MSA",728,816,1039,1301,1389
+2024,Rental,"Ashland County, OH",583,655,860,1110,1397
+2024,Rental,"Ashtabula County, OH",583,692,860,1085,1212
+2024,Rental,"Athens County, OH",804,809,983,1189,1491
+2024,Rental,"Auglaize County, OH",684,689,860,1212,1459
+2024,Rental,"Brown County, OH HUD Metro FMR Area",668,672,883,1129,1351
+2024,Rental,"Canton-Massillon, OH MSA",613,690,905,1134,1205
+2024,Rental,"Canton-Massillon, OH MSA",613,690,905,1134,1205
+2024,Rental,"Champaign County, OH",676,694,879,1170,1262
+2024,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",810,919,1195,1588,1766
+2024,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",810,919,1195,1588,1766
+2024,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",810,919,1195,1588,1766
+2024,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",810,919,1195,1588,1766
+2024,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",810,919,1195,1588,1766
+2024,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",810,919,1195,1588,1766
+2024,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",810,919,1195,1588,1766
+2024,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",810,919,1195,1588,1766
+2024,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",810,919,1195,1588,1766
+2024,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",810,919,1195,1588,1766
+2024,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",810,919,1195,1588,1766
+2024,Rental,"Cincinnati, OH-KY-IN  HUD Metro FMR Area",810,919,1195,1588,1766
+2024,Rental,"Cleveland-Elyria, OH MSA",811,913,1108,1434,1527
+2024,Rental,"Cleveland-Elyria, OH MSA",811,913,1108,1434,1527
+2024,Rental,"Cleveland-Elyria, OH MSA",811,913,1108,1434,1527
+2024,Rental,"Cleveland-Elyria, OH MSA",811,913,1108,1434,1527
+2024,Rental,"Cleveland-Elyria, OH MSA",811,913,1108,1434,1527
+2024,Rental,"Clinton County, OH",646,714,870,1132,1341
+2024,Rental,"Columbiana County, OH",583,704,860,1093,1164
+2024,Rental,"Columbus, OH HUD Metro FMR Area",970,1065,1302,1574,1745
+2024,Rental,"Columbus, OH HUD Metro FMR Area",970,1065,1302,1574,1745
+2024,Rental,"Columbus, OH HUD Metro FMR Area",970,1065,1302,1574,1745
+2024,Rental,"Columbus, OH HUD Metro FMR Area",970,1065,1302,1574,1745
+2024,Rental,"Columbus, OH HUD Metro FMR Area",970,1065,1302,1574,1745
+2024,Rental,"Columbus, OH HUD Metro FMR Area",970,1065,1302,1574,1745
+2024,Rental,"Columbus, OH HUD Metro FMR Area",970,1065,1302,1574,1745
+2024,Rental,"Coshocton County, OH",639,707,860,1206,1379
+2024,Rental,"Crawford County, OH",605,708,860,1143,1145
+2024,Rental,"Darke County, OH",639,741,860,1175,1214
+2024,Rental,"Dayton-Kettering, OH MSA",743,800,1023,1330,1459
+2024,Rental,"Dayton-Kettering, OH MSA",743,800,1023,1330,1459
+2024,Rental,"Dayton-Kettering, OH MSA",743,800,1023,1330,1459
+2024,Rental,"Defiance County, OH",642,667,876,1171,1231
+2024,Rental,"Erie County, OH",767,772,962,1163,1414
+2024,Rental,"Fayette County, OH",611,722,870,1128,1230
+2024,Rental,"Gallia County, OH",639,755,860,1041,1302
+2024,Rental,"Guernsey County, OH",639,655,860,1090,1315
+2024,Rental,"Hancock County, OH",650,740,959,1242,1534
+2024,Rental,"Hardin County, OH",639,701,860,1079,1215
+2024,Rental,"Harrison County, OH",639,655,860,1141,1145
+2024,Rental,"Henry County, OH",595,737,860,1130,1367
+2024,Rental,"Highland County, OH",639,706,860,1052,1318
+2024,Rental,"Hocking County, OH HUD Metro FMR Area",650,655,860,1204,1208
+2024,Rental,"Holmes County, OH",639,655,860,1040,1145
+2024,Rental,"Huron County, OH",650,665,874,1115,1284
+2024,Rental,"Jackson County, OH",639,666,860,1190,1378
+2024,Rental,"Knox County, OH",722,727,923,1228,1229
+2024,Rental,"Lima, OH MSA",716,737,947,1177,1328
+2024,Rental,"Logan County, OH",639,655,860,1100,1168
+2024,Rental,"Mansfield, OH MSA",609,689,860,1182,1355
+2024,Rental,"Marion County, OH",723,728,956,1156,1273
+2024,Rental,"Meigs County, OH",602,707,860,1040,1459
+2024,Rental,"Mercer County, OH",639,676,860,1141,1145
+2024,Rental,"Monroe County, OH",639,655,860,1191,1196
+2024,Rental,"Morgan County, OH",639,766,860,1068,1309
+2024,Rental,"Muskingum County, OH",678,682,873,1164,1225
+2024,Rental,"Noble County, OH",639,766,860,1040,1218
+2024,Rental,"Ottawa County, OH HUD Metro FMR Area",641,719,945,1143,1308
+2024,Rental,"Paulding County, OH",639,745,860,1178,1277
+2024,Rental,"Perry County, OH HUD Metro FMR Area",648,661,868,1068,1156
+2024,Rental,"Pike County, OH",639,655,860,1059,1262
+2024,Rental,"Preble County, OH",650,655,860,1127,1321
+2024,Rental,"Putnam County, OH",639,710,860,1040,1145
+2024,Rental,"Ross County, OH",667,768,934,1155,1244
+2024,Rental,"Sandusky County, OH",587,703,866,1204,1259
+2024,Rental,"Scioto County, OH",624,754,860,1172,1288
+2024,Rental,"Seneca County, OH",679,683,885,1102,1287
+2024,Rental,"Shelby County, OH",599,691,884,1194,1292
+2024,Rental,"Springfield, OH MSA",650,721,948,1149,1268
+2024,Rental,"Toledo, OH HUD Metro FMR Area",691,753,986,1307,1378
+2024,Rental,"Toledo, OH HUD Metro FMR Area",691,753,986,1307,1378
+2024,Rental,"Toledo, OH HUD Metro FMR Area",691,753,986,1307,1378
+2024,Rental,"Tuscarawas County, OH",688,693,910,1158,1319
+2024,Rental,"Union County, OH HUD Metro FMR Area",933,951,1250,1511,1665
+2024,Rental,"Van Wert County, OH",639,665,860,1077,1145
+2024,Rental,"Vinton County, OH",639,659,860,1040,1145
+2024,Rental,"Washington County, OH",654,659,860,1114,1224
+2024,Rental,"Wayne County, OH",634,703,911,1149,1292
+2024,Rental,"Williams County, OH",583,730,860,1086,1145
+2024,Rental,"Wyandot County, OH",639,712,860,1040,1355
+2024,Rental,"Youngstown-Warren-Boardman, OH HUD Metro FMR Area",633,683,860,1133,1198
+2024,Rental,"Youngstown-Warren-Boardman, OH HUD Metro FMR Area",633,683,860,1133,1198
